@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="players.cpp">
+      <Filter>game_objets</Filter>
+    </ClCompile>
+    <ClCompile Include="game_play.cpp">
+      <Filter>game_screens</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="game_screens">
+      <UniqueIdentifier>{0dd681ab-ce21-4d8e-99ca-c89c8852e8d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_objets">
+      <UniqueIdentifier>{e4230696-386c-433b-9b63-d13d8ee927f5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="players.h">
+      <Filter>game_objets</Filter>
+    </ClInclude>
+    <ClInclude Include="game_play.h">
+      <Filter>game_screens</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

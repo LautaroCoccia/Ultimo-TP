@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "keyboard-Breaker", "keyboard-Breaker\keyboard-Breaker.vcxproj", "{5001259A-562E-42A3-851B-FC6F93C44479}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5001259A-562E-42A3-851B-FC6F93C44479}.Debug|x64.ActiveCfg = Debug|x64
+		{5001259A-562E-42A3-851B-FC6F93C44479}.Debug|x64.Build.0 = Debug|x64
+		{5001259A-562E-42A3-851B-FC6F93C44479}.Debug|x86.ActiveCfg = Debug|Win32
+		{5001259A-562E-42A3-851B-FC6F93C44479}.Debug|x86.Build.0 = Debug|Win32
+		{5001259A-562E-42A3-851B-FC6F93C44479}.Release|x64.ActiveCfg = Release|x64
+		{5001259A-562E-42A3-851B-FC6F93C44479}.Release|x64.Build.0 = Release|x64
+		{5001259A-562E-42A3-851B-FC6F93C44479}.Release|x86.ActiveCfg = Release|Win32
+		{5001259A-562E-42A3-851B-FC6F93C44479}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA6A94FE-60BE-4C67-8EB7-5D46EEA92753}
+	EndGlobalSection
+EndGlobal
