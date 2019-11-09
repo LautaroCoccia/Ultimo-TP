@@ -19,17 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\game_objets\keys_in_screen.cpp" />
+    <ClCompile Include="..\src\game_objets\players.cpp" />
+    <ClCompile Include="..\src\game_screens\gameplay.cpp" />
+    <ClCompile Include="..\src\game_screens\game_manager.cpp" />
+    <ClCompile Include="..\src\game_screens\main_menu.cpp" />
     <ClCompile Include="..\src\main.cpp" />
-    <ClCompile Include="game_manager.cpp" />
-    <ClCompile Include="gameplay.cpp" />
-    <ClCompile Include="main_menu.cpp" />
-    <ClCompile Include="players.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game_manager.h" />
-    <ClInclude Include="gameplay.h" />
-    <ClInclude Include="main_menu.h" />
-    <ClInclude Include="players.h" />
+    <ClInclude Include="..\src\game_objets\keys_in_screen.h" />
+    <ClInclude Include="..\src\game_objets\players.h" />
+    <ClInclude Include="..\src\game_screens\gameplay.h" />
+    <ClInclude Include="..\src\game_screens\game_manager.h" />
+    <ClInclude Include="..\src\game_screens\main_menu.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -97,7 +99,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -125,7 +127,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

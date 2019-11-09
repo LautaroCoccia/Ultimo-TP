@@ -1,7 +1,9 @@
-#include "../keyboard-Breaker/game_manager.h"
+#include "game_screens/game_manager.h"
+
+using namespace Keyboard_Breaker;
 
 int main()
 {
-	InitializeWindowNMainLoop();
+	MainGameLoop();
 	return 0;
 }
