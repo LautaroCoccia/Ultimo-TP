@@ -2,7 +2,10 @@
 
 #include "raylib.h"
 
+#include "game_objets/players.h"
 #include "game_objets/keys_in_screen.h"
+
+#include <iostream>
 
 namespace Keyboard_Breaker
 {
@@ -20,8 +23,10 @@ namespace Keyboard_Breaker
 
 	void UpdateGameplay()
 	{
-		DrawText("Playing ", static_cast<int>(GetScreenWidth() / 2.5), GetScreenHeight() / 5, 30, WHITE);
+		Player::Input();
 
+		Player::DrawPoints();
+		DrawText("Playing ", static_cast<int>(GetScreenWidth() / 2.5), GetScreenHeight() / 5, 30, WHITE);
 		Keys::Draw();
 	}
 }

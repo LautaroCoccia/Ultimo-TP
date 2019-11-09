@@ -7,10 +7,12 @@ namespace Keyboard_Breaker
 {
 	namespace Keys
 	{
-		const int MAX_KEYS = 27;
+		const int MAX_KEYS = 26;
 
 		struct KEYS
 		{
+			int ascii[MAX_KEYS];
+			char drawKey[MAX_KEYS];
 			Rectangle rec[MAX_KEYS];
 			Image none_player;
 			Image player1_skin;
