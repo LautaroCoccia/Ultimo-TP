@@ -2,17 +2,20 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
-    <ClCompile Include="players.cpp">
+    <ClCompile Include="..\src\game_screens\game_manager.cpp">
+      <Filter>game_screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game_screens\gameplay.cpp">
+      <Filter>game_screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game_screens\main_menu.cpp">
+      <Filter>game_screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game_objets\keys_in_screen.cpp">
       <Filter>game_objets</Filter>
     </ClCompile>
-    <ClCompile Include="game_manager.cpp">
-      <Filter>game_screens</Filter>
-    </ClCompile>
-    <ClCompile Include="main_menu.cpp">
-      <Filter>game_screens</Filter>
-    </ClCompile>
-    <ClCompile Include="gameplay.cpp">
-      <Filter>game_screens</Filter>
+    <ClCompile Include="..\src\game_objets\players.cpp">
+      <Filter>game_objets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -24,17 +27,20 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="players.h">
+    <ClInclude Include="..\src\game_screens\game_manager.h">
+      <Filter>game_screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game_screens\gameplay.h">
+      <Filter>game_screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game_screens\main_menu.h">
+      <Filter>game_screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game_objets\keys_in_screen.h">
       <Filter>game_objets</Filter>
     </ClInclude>
-    <ClInclude Include="game_manager.h">
-      <Filter>game_screens</Filter>
-    </ClInclude>
-    <ClInclude Include="main_menu.h">
-      <Filter>game_screens</Filter>
-    </ClInclude>
-    <ClInclude Include="gameplay.h">
-      <Filter>game_screens</Filter>
+    <ClInclude Include="..\src\game_objets\players.h">
+      <Filter>game_objets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
