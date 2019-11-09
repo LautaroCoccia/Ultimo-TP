@@ -4,6 +4,7 @@
 
 #include "main_menu.h"
 #include "gameplay.h"
+#include "game_objets/players.h"
 #include "game_objets/keys_in_screen.h"
 
 namespace Keyboard_Breaker
@@ -21,6 +22,7 @@ namespace Keyboard_Breaker
 	void MainGameLoop()
 	{
 		InitializeWindowNMainLoop();
+		Player::Initialice();
 		Keys::Initialice();
 		/*srand(time(NULL));*/
 		while (!WindowShouldClose() || IsKeyPressed(KEY_ESCAPE))
