@@ -1,3 +1,5 @@
+//#include <stdlib.h>
+//#include <time.h>
 #include "game_manager.h"
 
 #include "raylib.h"
@@ -17,6 +19,7 @@ namespace Keyboard_Breaker
 	static void InitializeWindowNMainLoop()
 	{
 		InitWindow(screenBaseWidth, screenBaseHeight, "Keyboard Breaker.exe");
+		//srand(time(NULL));
 	}
 
 	void MainGameLoop()
@@ -24,7 +27,7 @@ namespace Keyboard_Breaker
 		InitializeWindowNMainLoop();
 		Player::Initialice();
 		Keys::Initialice();
-		/*srand(time(NULL));*/
+		
 		while (!WindowShouldClose() || IsKeyPressed(KEY_ESCAPE))
 		{
 			ClearBackground(BLACK);
