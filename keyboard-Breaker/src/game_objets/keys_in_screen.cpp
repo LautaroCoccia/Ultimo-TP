@@ -104,6 +104,8 @@ namespace Keyboard_Breaker
 				{
 					DrawRectangleRec(keys.rec[i], WHITE);
 				}
+
+				DrawText(&keys.drawKey[i], static_cast<int>(keys.rec[i].x + 10), static_cast<int>(keys.rec[i].y + 10), 20, BLACK);
 			}
 		}
 

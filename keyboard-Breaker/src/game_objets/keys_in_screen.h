@@ -20,7 +20,7 @@ namespace Keyboard_Breaker
 			Image player1_skin;
 			Image player2_skin;
 		};
-
+		
 		extern KEYS keys;
 
 		void Initialice();
