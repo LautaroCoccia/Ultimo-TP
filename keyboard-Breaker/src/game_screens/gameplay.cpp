@@ -23,10 +23,11 @@ namespace Keyboard_Breaker
 
 	void UpdateGameplay()
 	{
-		Player::Input();
-
-		Player::DrawPoints();
 		DrawText("Playing ", static_cast<int>(GetScreenWidth() / 2.5), GetScreenHeight() / 5, 30, WHITE);
+		
+		Player::Input();
+		Keys::EarnPoint();
+		Player::DrawPoints();
 		Keys::Draw();
 	}
 }

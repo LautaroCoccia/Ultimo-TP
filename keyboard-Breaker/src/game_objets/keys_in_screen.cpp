@@ -1,9 +1,15 @@
+#include <stdlib.h>
+#include <time.h>
+
 #include "keys_in_screen.h"
 
 #include "players.h"
 
+
 namespace Keyboard_Breaker
 {
+	using namespace Player;
+
 	namespace Keys
 	{
 		KEYS keys;
@@ -24,16 +30,15 @@ namespace Keyboard_Breaker
 
 			DeclarateKeys();
 
-			for (int i = 0; i < MAX_KEYS; i++) 
+			for (int i = 0; i < MAX_KEYS; i++)
 			{
 				keys.rec[i].height = HEIGHT;
 				keys.rec[i].width = WIDTH;
-
 				keys.rec[i].x = pixelsX;
 				keys.rec[i].y = pixelsY;
 
 				pixelsX += keys.rec[i].width + 20;
-				
+
 				if ((i == 9) || (i == 18))
 				{
 					if (i == 18)
@@ -47,9 +52,39 @@ namespace Keyboard_Breaker
 					pixelsY += keys.rec[i].height + 20;
 				}
 
+				MovePoint();
 				//keys.none_player; ------------> para agregar las imagenes del artista
 				//keys.player_skin;
 				//keys.player2_skin;
+			}
+		}
+
+		void MovePoint()
+		{
+			keys.pj1_Point = keys.pj2_Point;
+			while (keys.pj1_Point == keys.pj2_Point)
+			{
+				keys.pj1_Point = GetRandomValue(KEY_A, KEY_Z);
+				keys.pj2_Point = GetRandomValue(KEY_A, KEY_Z);
+			}
+		}
+
+		void EarnPoint()
+		{
+			for (int i = 0; i < MAX_KEYS; i++)
+			{
+				if (keys.pj1_Point == players.keyPress)
+				{
+					players.pointsPj1++;
+					players.keyPress = 0;
+					MovePoint();
+				}
+				else if (keys.pj2_Point == players.keyPress)
+				{
+					players.pointsPj2++;
+					players.keyPress = 0;
+					MovePoint();
+				}
 			}
 		}
 
@@ -57,18 +92,22 @@ namespace Keyboard_Breaker
 		{
 			for (int i = 0; i < MAX_KEYS; i++)
 			{
-				if (keys.ascii[i] == Player::players.keyPress)
+				if (keys.ascii[i] == keys.pj1_Point)
 				{
 					DrawRectangleRec(keys.rec[i], BLUE);
 				}
-				else 
+				else if (keys.ascii[i] == keys.pj2_Point)
+				{
+					DrawRectangleRec(keys.rec[i], RED);
+				}
+				else
 				{
 					DrawRectangleRec(keys.rec[i], WHITE);
 				}
 			}
 		}
 
-		void DeclarateKeys() 
+		void DeclarateKeys()
 		{
 			keys.ascii[0] = KEY_Q;
 			keys.drawKey[0] = 'Q';
@@ -126,10 +165,10 @@ namespace Keyboard_Breaker
 
 			keys.ascii[18] = KEY_L;
 			keys.drawKey[18] = 'L';
-/*
+			/*
 			keys.ascii[0] = KEY_Ñ;
-			keys.drawKey[0] = 'Ñ';*/
-
+			keys.drawKey[0] = 'Ñ';
+			*/
 			keys.ascii[19] = KEY_Z;
 			keys.drawKey[19] = 'Z';
 
