@@ -5,8 +5,6 @@
 
 # User-specific files
 *.rsuser
-*.suo
-*.user
 *.userosscache
 *.sln.docstates
 
@@ -27,8 +25,10 @@ x86/
 [Aa][Rr][Mm]64/
 bld/
 [Bb]in/
+!Librerias/raylib-2.5.0-Win32-msvc15/[Bb]in
 [Oo]bj/
 [Ll]og/
+[Ll]ogs/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -347,3 +347,6 @@ healthchecksdb
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
+
+# Ionide (cross platform F# VS Code tools) working folder
+.ionide/
