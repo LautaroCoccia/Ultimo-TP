@@ -105,7 +105,8 @@ namespace Keyboard_Breaker
 					DrawRectangleRec(keys.rec[i], WHITE);
 				}
 
-				DrawText(&keys.drawKey[i], static_cast<int>(keys.rec[i].x + 10), static_cast<int>(keys.rec[i].y + 10), 20, BLACK);
+				char example[2] = { keys.drawKey[i], '\0' };
+				DrawText(example, static_cast<int>((keys.rec[i].x + keys.rec[i].width/2) - (MeasureText(example, 20)/2)), static_cast<int>(keys.rec[i].y + 10), 20, BLACK);
 			}
 		}
 
@@ -167,10 +168,7 @@ namespace Keyboard_Breaker
 
 			keys.ascii[18] = KEY_L;
 			keys.drawKey[18] = 'L';
-			/*
-			keys.ascii[0] = KEY_Ñ;
-			keys.drawKey[0] = 'Ñ';
-			*/
+
 			keys.ascii[19] = KEY_Z;
 			keys.drawKey[19] = 'Z';
 
