@@ -9,6 +9,8 @@ namespace Keyboard_Breaker
 
 	static bool menuActive = true;
 
+	static int fontTittle = 40;
+
 	void SetMenuActive();
 	void DrawMainMenu();
 	void DrawTittle();
@@ -40,8 +42,8 @@ namespace Keyboard_Breaker
 
 	void DrawTittle()
 	{
-		DrawText("KEYBOARD BREAKER ", static_cast<int>(GetScreenWidth() / 3.8), GetScreenHeight() / 5, 30, WHITE);
-		DrawText("v0.1", 600, 380, 20, RAYWHITE);
+		DrawText("KEYBOARD BREAKER", static_cast<int>(GetScreenWidth()/2 - (MeasureText("KEYBOARD BREAKER", fontTittle)/2)), GetScreenHeight() / 5, fontTittle, WHITE);
+		DrawText("v0.1", GetScreenWidth() - 40, GetScreenHeight() - 20, 20, RAYWHITE);
 	}
 
 	void CheckCollitionButtonsMouse()
@@ -72,11 +74,12 @@ namespace Keyboard_Breaker
 
 	void DrawButtons()
 	{
-		play.genButton = { 280, 170, 80, 30 };
+		play.genButton = { static_cast<float>(GetScreenWidth()-80)/2, static_cast<float>(GetScreenHeight()- 30)/2.5f, 80, 30 };
 		DrawRectangleRec(play.genButton, play.actuallColor);
-		DrawText("play", 295, 173, 24, BLACK);
-		exit.genButton = { 280, 340, 80, 30 };
+		DrawText("play", static_cast<int>(play.genButton.x + play.genButton.width/2) - (MeasureText("play",24)/2), static_cast<int>(play.genButton.y), 24, BLACK);
+		
+		exit.genButton = { static_cast<float>(GetScreenWidth() - 80) / 2, static_cast<float>(GetScreenHeight() - 30) / 2, 80, 30 };
 		DrawRectangleRec(exit.genButton, exit.actuallColor);
-		DrawText("exit", 298, 345, 24, BLACK);
+		DrawText("exit", static_cast<int>(exit.genButton.x + exit.genButton.width / 2) - (MeasureText("exit", 24) / 2), static_cast<int>(exit.genButton.y), 24, BLACK);
 	}
 }

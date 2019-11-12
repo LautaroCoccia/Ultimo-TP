@@ -26,6 +26,7 @@ namespace Keyboard_Breaker
 		DrawText("Playing ", static_cast<int>(GetScreenWidth() / 2.5), GetScreenHeight() / 5, 30, WHITE);
 		
 		Player::Input();
+		Keys::PowersUps();
 		Keys::EarnPoint();
 		Player::DrawPoints();
 		Keys::Draw();

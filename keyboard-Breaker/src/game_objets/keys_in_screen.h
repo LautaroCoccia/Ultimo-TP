@@ -19,12 +19,16 @@ namespace Keyboard_Breaker
 			Image none_player;
 			Image player1_skin;
 			Image player2_skin;
+			
+			//power ups
+			bool mine;
 		};
 		
 		extern KEYS keys;
 
 		void Initialice();
 		void MovePoint();
+		void PowersUps();
 		void EarnPoint();
 		void Draw();
 	}
