@@ -54,7 +54,7 @@ namespace Keyboard_Breaker
 			if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
 			{
 				SetMenuActive();
-				SetGameplayActive();
+				Gameplay::SetGameplayActive();
 			}
 		}
 		else

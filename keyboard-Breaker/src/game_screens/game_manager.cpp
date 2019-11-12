@@ -25,6 +25,7 @@ namespace Keyboard_Breaker
 	void MainGameLoop()
 	{
 		InitializeWindowNMainLoop();
+		Gameplay::InitGameMode();
 		Player::Initialice();
 		Keys::Initialice();
 		
@@ -37,9 +38,9 @@ namespace Keyboard_Breaker
 			{
 				UpdateMenu();
 			}
-			else if (GetGameplay())
+			else if (Gameplay::GetGameplay())
 			{
-				UpdateGameplay();
+				Gameplay::UpdateGameplay();
 			}
 			/*else if (GetGameOver())
 			{

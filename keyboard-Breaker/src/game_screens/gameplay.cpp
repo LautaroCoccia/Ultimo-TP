@@ -9,26 +9,54 @@
 
 namespace Keyboard_Breaker
 {
-	static bool gameplay = false;
-
-	void SetGameplayActive()
+	namespace Gameplay
 	{
-		gameplay = !gameplay;
-	}
+		gameModes modes;
 
-	bool GetGameplay()
-	{
-		return gameplay;
-	}
+		static bool gameplay = false;
 
-	void UpdateGameplay()
-	{
-		DrawText("Playing ", static_cast<int>(GetScreenWidth() / 2.5), GetScreenHeight() / 5, 30, WHITE);
-		
-		Player::Input();
-		Keys::PowersUps();
-		Keys::EarnPoint();
-		Player::DrawPoints();
-		Keys::Draw();
+		void SetGameplayActive()
+		{
+			gameplay = !gameplay;
+		}
+
+		bool GetGameplay()
+		{
+			return gameplay;
+		}
+
+		void InitGameMode()
+		{
+			modes = fight;
+		}
+
+		void UpdateGameplay()
+		{
+			DrawText("Playing ", static_cast<int>(GetScreenWidth() / 2.5), GetScreenHeight() / 5, 30, WHITE);
+
+			switch (modes)
+			{
+			case normal:
+
+				Player::Input();
+				Keys::PowersUps();
+				Keys::EarnPoint();
+				Player::DrawPoints();
+				Keys::Draw();
+
+				break;
+			case fight:
+
+				Player::Input();
+				//Keys::PowersUps();
+				Keys::EarnPoint();
+				Player::DrawPoints();
+				Keys::Draw();
+
+				break;
+			}
+
+
+		}
 	}
 }

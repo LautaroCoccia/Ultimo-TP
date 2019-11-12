@@ -4,15 +4,17 @@
 #include "keys_in_screen.h"
 
 #include "players.h"
-
+#include "game_screens/gameplay.h"
 
 namespace Keyboard_Breaker
 {
 	using namespace Player;
+	using namespace Gameplay;
 
 	namespace Keys
 	{
 		KEYS keys;
+		FIGHT_BAR fightBar;
 
 		const float HEIGHT = 40;
 		const float WIDTH = 40;
@@ -79,33 +81,57 @@ namespace Keyboard_Breaker
 
 		void EarnPoint()
 		{
-			for (int i = 0; i < MAX_KEYS; i++)
+			switch (modes)
 			{
-				if (keys.pj1_Point == players.keyPress)
+			case normal:
+
+				for (int i = 0; i < MAX_KEYS; i++)
 				{
-					if (keys.mine == true) 
+					if (keys.pj1_Point == players.keyPress)
 					{
-						players.pointsPj1 -= 2;
+						if (keys.mine == true)
+						{
+							players.pointsPj1 -= 2;
+						}
+						else
+						{
+							players.pointsPj1++;
+						}
+						players.keyPress = 0;
+						MovePoint();
 					}
-					else
+					else if (keys.pj2_Point == players.keyPress)
 					{
-						players.pointsPj1++;
+						if (keys.mine == true)
+						{
+							players.pointsPj2 -= 2;
+						}
+						else
+						{
+							players.pointsPj2++;
+						}
+						players.keyPress = 0;
+						MovePoint();
 					}
-					players.keyPress = 0;
-					MovePoint();
 				}
-				else if (keys.pj2_Point == players.keyPress)
+
+				break;
+			case fight:
+
+				for (int i = 0; i < MAX_KEYS; i++)
 				{
-					if (keys.mine == true)
+					if (keys.pj1_Point == players.keyPress)
 					{
-						players.pointsPj2 -= 2;
+						pointsBar.rec.x -= pointsBar.movement;
+						players.keyPress = 0;
+						MovePoint();
 					}
-					else
+					else if (keys.pj2_Point == players.keyPress)
 					{
-						players.pointsPj2++;
+						pointsBar.rec.x += pointsBar.movement;
+						players.keyPress = 0;
+						MovePoint();
 					}
-					players.keyPress = 0;
-					MovePoint();
 				}
 			}
 		}
@@ -130,13 +156,13 @@ namespace Keyboard_Breaker
 				DrawPowerUps(i);
 
 				char example[2] = { keys.drawKey[i], '\0' };
-				DrawText(example, static_cast<int>((keys.rec[i].x + keys.rec[i].width/2) - (MeasureText(example, 20)/2)), static_cast<int>(keys.rec[i].y + 10), 20, BLACK);
+				DrawText(example, static_cast<int>((keys.rec[i].x + keys.rec[i].width / 2) - (MeasureText(example, 20) / 2)), static_cast<int>(keys.rec[i].y + 10), 20, BLACK);
 			}
 		}
-		
+
 		// ---------------------------------------------------------------------------------------- \\
 		// functions for this cpp
-		void mineAppears() 
+		void mineAppears()
 		{
 			if (((players.pointsPj1 % 10 == 0) && (players.pointsPj1 != 0)) || ((players.pointsPj2 % 10 == 0) && (players.pointsPj2 != 0)))
 			{
@@ -159,7 +185,7 @@ namespace Keyboard_Breaker
 				DrawRectangleRec(keys.rec[i], GREEN);
 			}
 		}
-		
+
 		void DeclarateKeys()
 		{
 			keys.ascii[0] = KEY_Q;

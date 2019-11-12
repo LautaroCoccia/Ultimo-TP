@@ -1,12 +1,15 @@
 #include "players.h"
 
-#include "raylib.h"
+#include "game_screens/gameplay.h"
 
 namespace Keyboard_Breaker
 {
+	using namespace Gameplay;
+
 	namespace Player
 	{
 		PLAYER players;
+		POINTS_BAR pointsBar; // fight mode only
 
 		void Initialice()
 		{
@@ -14,13 +17,30 @@ namespace Keyboard_Breaker
 			players.pointsPj1 = 0;
 			players.pointsPj2 = 0;
 			players.win = false;
+
+			// fight mode
+			pointsBar.rec.height = 30.0f;
+			pointsBar.rec.width = 300.0f;
+			pointsBar.rec.x = (GetScreenWidth()/2 - pointsBar.rec.width/2);
+			pointsBar.rec.y = 20;
+			pointsBar.movement = 50;
 		}
 
 		void DrawPoints()
 		{
-			DrawText(FormatText("%i", players.pointsPj1), 40, 20, 40, BLUE);
-			DrawText(FormatText("%i", players.pointsPj2), GetScreenWidth() - 60, 20, 40, RED);
+			switch (modes)
+			{
+			case normal:
+				DrawText(FormatText("%i", players.pointsPj1), 40, 20, 40, BLUE);
+				DrawText(FormatText("%i", players.pointsPj2), GetScreenWidth() - 60, 20, 40, RED);
+				break;
+
+			case fight:
+				DrawRectangleRec(pointsBar.rec, WHITE);
+				break;
+			}
 		}
+
 
 		void Input()
 		{

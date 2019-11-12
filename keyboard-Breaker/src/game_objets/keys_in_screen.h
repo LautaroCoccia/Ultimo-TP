@@ -24,6 +24,12 @@ namespace Keyboard_Breaker
 			bool mine;
 		};
 		
+		struct FIGHT_BAR
+		{
+			Rectangle rec;
+		};
+
+		extern FIGHT_BAR fightBar;
 		extern KEYS keys;
 
 		void Initialice();

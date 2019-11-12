@@ -3,9 +3,19 @@
 
 namespace Keyboard_Breaker
 {
-	extern void SetGameplayActive();
-	extern bool GetGameplay();
-	extern void UpdateGameplay();
+	namespace Gameplay
+	{
+		enum gameModes {
+			normal, fight
+		};
+
+		extern gameModes modes;
+
+		void SetGameplayActive();
+		bool GetGameplay();
+		void InitGameMode();
+		void UpdateGameplay();
+	}
 }
 
 #endif
