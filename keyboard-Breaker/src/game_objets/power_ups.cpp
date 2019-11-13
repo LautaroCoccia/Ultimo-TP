@@ -1,10 +1,10 @@
 #include "power_ups.h"
 
-namespace Keboard_Breaker
+namespace Keyboard_Breaker
 {
 	namespace Power_Ups
 	{
 		MINE mine;
-
+		COMBOTIME comboTime;
 	}
 }

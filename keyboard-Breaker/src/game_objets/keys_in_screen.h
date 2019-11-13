@@ -19,26 +19,21 @@ namespace Keyboard_Breaker
 			Image none_player;
 			Image player1_skin;
 			Image player2_skin;
-			
+
 			//power ups
 			bool mine;
 		};
-		
+
 		struct FIGHT_BAR
 		{
 			Rectangle rec;
 		};
 
-		struct COMBOTIME
-		{
-			bool appear;
-			int comboCountP1;
-			int comboCountP2;
-		};
+
 
 		extern FIGHT_BAR fightBar;
 		extern KEYS keys;
-		extern COMBOTIME comboTime;
+
 
 		void Initialice();
 		void MovePoint();

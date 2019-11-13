@@ -21,21 +21,21 @@
   <ItemGroup>
     <ClCompile Include="..\src\game_objets\keys_in_screen.cpp" />
     <ClCompile Include="..\src\game_objets\players.cpp" />
+    <ClCompile Include="..\src\game_objets\power_ups.cpp" />
     <ClCompile Include="..\src\game_screens\gameplay.cpp" />
     <ClCompile Include="..\src\game_screens\game_manager.cpp" />
     <ClCompile Include="..\src\game_screens\main_menu.cpp" />
     <ClCompile Include="..\src\game_screens\win_screen.cpp" />
     <ClCompile Include="..\src\main.cpp" />
-    <ClCompile Include="power_ups.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\game_objets\keys_in_screen.h" />
     <ClInclude Include="..\src\game_objets\players.h" />
+    <ClInclude Include="..\src\game_objets\power_ups.h" />
     <ClInclude Include="..\src\game_screens\gameplay.h" />
     <ClInclude Include="..\src\game_screens\game_manager.h" />
     <ClInclude Include="..\src\game_screens\main_menu.h" />
     <ClInclude Include="..\src\game_screens\win_screen.h" />
-    <ClInclude Include="power_ups.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

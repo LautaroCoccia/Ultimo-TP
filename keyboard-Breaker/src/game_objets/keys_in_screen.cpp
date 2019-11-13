@@ -5,19 +5,21 @@
 
 #include "players.h"
 #include "game_screens/gameplay.h"
+#include "game_objets/power_ups.h"
 
-#include <iostream>
-using namespace std;
+
+
 namespace Keyboard_Breaker
 {
 	using namespace Player;
 	using namespace Gameplay;
+	using namespace Power_Ups;
 
 	namespace Keys
 	{
 		KEYS keys;
 		FIGHT_BAR fightBar;
-		COMBOTIME comboTime;
+
 
 		const float HEIGHT = 40;
 		const float WIDTH = 40;
@@ -75,13 +77,13 @@ namespace Keyboard_Breaker
 			if (!comboTime.appear)
 			{
 				keys.pj1_Point = keys.pj2_Point;
+
 				while (keys.pj1_Point == keys.pj2_Point)
 				{
 					keys.pj1_Point = GetRandomValue(KEY_A, KEY_Z);
 					keys.pj2_Point = GetRandomValue(KEY_A, KEY_Z);
 				}
 			}
-
 		}
 
 		void PowersUps()
@@ -116,6 +118,9 @@ namespace Keyboard_Breaker
 								players.pointsPj1++;
 								comboTime.comboCountP1++;
 							}
+
+
+
 						}
 						else if (keys.mine == true)
 						{
@@ -137,6 +142,8 @@ namespace Keyboard_Breaker
 								players.pointsPj2++;
 								comboTime.comboCountP2++;
 							}
+
+
 						}
 						else if (keys.mine == true)
 						{
@@ -174,6 +181,10 @@ namespace Keyboard_Breaker
 
 		void Draw()
 		{
+			if (comboTime.appear)
+			{
+				DrawText("KEYBOARD BREAKER", 10, 10, 24, RED);
+			}
 			for (int i = 0; i < MAX_KEYS; i++)
 			{
 				if (keys.ascii[i] == keys.pj1_Point)
