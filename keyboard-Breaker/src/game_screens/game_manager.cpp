@@ -11,43 +11,50 @@
 
 namespace Keyboard_Breaker
 {
-	const int screenBaseWidth = 1200;
-	const int screenBaseHeight = 700;
-
-	static void InitializeWindowNMainLoop();
-
-	static void InitializeWindowNMainLoop()
+	namespace Game_Manager
 	{
-		InitWindow(screenBaseWidth, screenBaseHeight, "Keyboard Breaker.exe");
-		//srand(time(NULL));
-	}
+		STATE state;
 
-	void MainGameLoop()
-	{
-		InitializeWindowNMainLoop();
-		Gameplay::InitGameMode();
-		Player::Initialice();
-		Keys::Initialice();
-		
-		while (!WindowShouldClose() || IsKeyPressed(KEY_ESCAPE))
+		const int screenBaseWidth = 1200;
+		const int screenBaseHeight = 700;
+
+		static void InitializeWindowNMainLoop();
+		static void InitializeWindowNMainLoop()
 		{
-			ClearBackground(BLACK);
-			BeginDrawing();
+			InitWindow(screenBaseWidth, screenBaseHeight, "Keyboard Breaker.exe");
 
-			if (GetMenuActive())
-			{
-				UpdateMenu();
-			}
-			else if (Gameplay::GetGameplay())
-			{
-				Gameplay::UpdateGameplay();
-			}
-			/*else if (GetGameOver())
-			{
-				RunGameOver();
-			}*/
+			state = menu;
 
-			EndDrawing();
+			Gameplay::InitGameMode();
+			Player::Initialice();
+			Keys::Initialice();
+		}
+
+		void MainGameLoop()
+		{
+			InitializeWindowNMainLoop();
+
+			while (!WindowShouldClose() || IsKeyPressed(KEY_ESCAPE))
+			{
+				ClearBackground(BLACK);
+				BeginDrawing();
+
+				switch (state)
+				{
+				case menu:
+					Main_Menu::UpdateMenu();
+					break;
+				case gameplay:
+					Gameplay::UpdateGameplay();
+					break;
+				case gameOver:
+					break;
+				case credits:
+					break;
+				}
+
+				EndDrawing();
+			}
 		}
 	}
 }

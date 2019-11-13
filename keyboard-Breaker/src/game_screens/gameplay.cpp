@@ -13,18 +13,6 @@ namespace Keyboard_Breaker
 	{
 		gameModes modes;
 
-		static bool gameplay = false;
-
-		void SetGameplayActive()
-		{
-			gameplay = !gameplay;
-		}
-
-		bool GetGameplay()
-		{
-			return gameplay;
-		}
-
 		void InitGameMode()
 		{
 			modes = fight;

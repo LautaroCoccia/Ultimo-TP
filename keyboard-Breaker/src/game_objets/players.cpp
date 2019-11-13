@@ -41,7 +41,6 @@ namespace Keyboard_Breaker
 			}
 		}
 
-
 		void Input()
 		{
 			if (IsKeyDown(KEY_Q))

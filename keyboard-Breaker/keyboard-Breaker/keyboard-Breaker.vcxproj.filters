@@ -17,6 +17,9 @@
     <ClCompile Include="..\src\game_objets\players.cpp">
       <Filter>game_objets</Filter>
     </ClCompile>
+    <ClCompile Include="power_ups.cpp">
+      <Filter>game_objets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="game_screens">
@@ -40,6 +43,9 @@
       <Filter>game_objets</Filter>
     </ClInclude>
     <ClInclude Include="..\src\game_objets\players.h">
+      <Filter>game_objets</Filter>
+    </ClInclude>
+    <ClInclude Include="power_ups.h">
       <Filter>game_objets</Filter>
     </ClInclude>
   </ItemGroup>

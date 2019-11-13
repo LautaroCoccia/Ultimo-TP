@@ -21,7 +21,7 @@ namespace Keyboard_Breaker
 
 		void mineAppears();
 		void DeclarateKeys();
-		void DrawPowerUps(int i);
+		void DrawMine(int i);
 
 		void Initialice()
 		{
@@ -153,7 +153,7 @@ namespace Keyboard_Breaker
 					DrawRectangleRec(keys.rec[i], WHITE);
 				}
 
-				DrawPowerUps(i);
+				DrawMine(i);
 
 				char example[2] = { keys.drawKey[i], '\0' };
 				DrawText(example, static_cast<int>((keys.rec[i].x + keys.rec[i].width / 2) - (MeasureText(example, 20) / 2)), static_cast<int>(keys.rec[i].y + 10), 20, BLACK);
@@ -174,7 +174,7 @@ namespace Keyboard_Breaker
 			}
 		}
 
-		void DrawPowerUps(int i)
+		void DrawMine(int i)
 		{
 			if ((keys.mine == true) && (keys.ascii[i] == keys.pj1_Point))
 			{

@@ -4,6 +4,6 @@ using namespace Keyboard_Breaker;
 
 int main()
 {
-	MainGameLoop();
+	Game_Manager::MainGameLoop();
 	return 0;
 }

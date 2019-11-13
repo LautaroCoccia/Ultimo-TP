@@ -3,7 +3,17 @@
 
 namespace Keyboard_Breaker
 {
-	void MainGameLoop();
+	namespace Game_Manager
+	{
+		enum STATE
+		{
+			menu, gameplay, gameOver, credits
+		};
+
+		extern STATE state;
+
+		void MainGameLoop();
+	}
 }
 #endif
 
