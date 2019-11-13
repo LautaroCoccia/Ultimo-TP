@@ -17,6 +17,8 @@ namespace Keyboard_Breaker
 			players.keyPress = 0;
 			players.pointsPj1 = 0;
 			players.pointsPj2 = 0;
+			players.winPj1 = false;
+			players.winPj2 = false;
 
 			// fight mode
 			pointsBar.rec.height = 30.0f;
@@ -24,6 +26,38 @@ namespace Keyboard_Breaker
 			pointsBar.rec.x = (GetScreenWidth()/2 - pointsBar.rec.width/2);
 			pointsBar.rec.y = 20;
 			pointsBar.movement = 50;
+		}
+
+		void Win()
+		{
+			switch (Gameplay::modes)
+			{
+			case normal:
+
+				if (players.pointsPj1 >= 30 || players.pointsPj2 >= 30)
+				{
+					Game_Manager::state = Game_Manager::winScreen;
+
+				}
+				else
+				{
+					Game_Manager::state = Game_Manager::winScreen;
+
+				}
+				break;
+
+			case fight:
+
+				if (pointsBar.rec.x <= 0 || pointsBar.rec.x >= GetScreenWidth())
+				{
+					Game_Manager::state = Game_Manager::winScreen;
+				}
+				else
+				{
+
+				}
+				break;
+			}
 		}
 
 		void DrawPoints()

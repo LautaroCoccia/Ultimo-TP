@@ -4,6 +4,7 @@
 
 #include "main_menu.h"
 #include "gameplay.h"
+#include "win_screen.h"
 #include "game_objets/players.h"
 #include "game_objets/keys_in_screen.h"
 
@@ -24,6 +25,7 @@ namespace Keyboard_Breaker
 			state = menu;
 
 			Main_Menu::InitMenu();
+			Win_Screen::InitWin();
 			Gameplay::InitGameMode();
 			Player::Initialice();
 			Keys::Initialice();
@@ -46,7 +48,8 @@ namespace Keyboard_Breaker
 				case gameplay:
 					Gameplay::UpdateGameplay();
 					break;
-				case gameOver:
+				case winScreen:
+					Win_Screen::UpdateWin();
 					break;
 				case credits:
 					break;

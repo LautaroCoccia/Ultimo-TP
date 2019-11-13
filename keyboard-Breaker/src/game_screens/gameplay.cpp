@@ -30,6 +30,8 @@ namespace Keyboard_Breaker
 				Player::DrawPoints();
 				Keys::Draw();
 
+				DrawText("v0.1", GetScreenWidth() - 40, GetScreenHeight() - 20, 20, RAYWHITE);
+
 				break;
 			case fight:
 
@@ -38,6 +40,8 @@ namespace Keyboard_Breaker
 				Keys::EarnPoint();
 				Player::DrawPoints();
 				Keys::Draw();
+
+				DrawText("v0.1", GetScreenWidth() - 40, GetScreenHeight() - 20, 20, RAYWHITE);
 
 				break;
 			}

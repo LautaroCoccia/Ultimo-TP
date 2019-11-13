@@ -7,7 +7,7 @@ namespace Keyboard_Breaker
 	{
 		enum STATE
 		{
-			menu, gameplay, gameOver, credits
+			menu, gameplay, winScreen, credits
 		};
 
 		extern STATE state;

@@ -116,9 +116,6 @@ namespace Keyboard_Breaker
 								players.pointsPj1++;
 								comboTime.comboCountP1++;
 							}
-							
-
-
 						}
 						else if (keys.mine == true)
 						{
@@ -140,8 +137,6 @@ namespace Keyboard_Breaker
 								players.pointsPj2++;
 								comboTime.comboCountP2++;
 							}
-							
-						
 						}
 						else if (keys.mine == true)
 						{

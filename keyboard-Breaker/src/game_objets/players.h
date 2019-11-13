@@ -12,6 +12,8 @@ namespace Keyboard_Breaker
 			int keyPress;
 			int pointsPj1;
 			int pointsPj2;
+			bool winPj1;
+			bool winPj2;
 		};
 
 		struct POINTS_BAR
@@ -24,6 +26,7 @@ namespace Keyboard_Breaker
 		extern POINTS_BAR pointsBar; // fight mode only
 
 		void Initialice();
+		void Win();
 		void DrawPoints();
 		void Input();
 	}
