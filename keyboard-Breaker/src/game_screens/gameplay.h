@@ -11,8 +11,6 @@ namespace Keyboard_Breaker
 
 		extern gameModes modes;
 
-		void SetGameplayActive();
-		bool GetGameplay();
 		void InitGameMode();
 		void UpdateGameplay();
 	}

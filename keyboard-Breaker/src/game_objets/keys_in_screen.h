@@ -29,8 +29,16 @@ namespace Keyboard_Breaker
 			Rectangle rec;
 		};
 
+		struct COMBOTIME
+		{
+			bool appear;
+			int comboCountP1;
+			int comboCountP2;
+		};
+
 		extern FIGHT_BAR fightBar;
 		extern KEYS keys;
+		extern COMBOTIME comboTime;
 
 		void Initialice();
 		void MovePoint();

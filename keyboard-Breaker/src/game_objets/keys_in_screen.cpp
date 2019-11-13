@@ -6,6 +6,8 @@
 #include "players.h"
 #include "game_screens/gameplay.h"
 
+#include <iostream>
+using namespace std;
 namespace Keyboard_Breaker
 {
 	using namespace Player;
@@ -15,6 +17,7 @@ namespace Keyboard_Breaker
 	{
 		KEYS keys;
 		FIGHT_BAR fightBar;
+		COMBOTIME comboTime;
 
 		const float HEIGHT = 40;
 		const float WIDTH = 40;
@@ -25,6 +28,9 @@ namespace Keyboard_Breaker
 
 		void Initialice()
 		{
+			comboTime.appear = false;
+			comboTime.comboCountP1 = 0;
+			comboTime.comboCountP2 = 0;
 			float distanceX = static_cast<float>(GetScreenWidth()) / 4;
 			float distanceX2 = static_cast<float>(GetScreenWidth()) / 3.8f;
 			float distanceY = static_cast<float>(GetScreenHeight()) / 2.5f;
@@ -66,12 +72,16 @@ namespace Keyboard_Breaker
 
 		void MovePoint()
 		{
-			keys.pj1_Point = keys.pj2_Point;
-			while (keys.pj1_Point == keys.pj2_Point)
+			if (!comboTime.appear)
 			{
-				keys.pj1_Point = GetRandomValue(KEY_A, KEY_Z);
-				keys.pj2_Point = GetRandomValue(KEY_A, KEY_Z);
+				keys.pj1_Point = keys.pj2_Point;
+				while (keys.pj1_Point == keys.pj2_Point)
+				{
+					keys.pj1_Point = GetRandomValue(KEY_A, KEY_Z);
+					keys.pj2_Point = GetRandomValue(KEY_A, KEY_Z);
+				}
 			}
+
 		}
 
 		void PowersUps()
@@ -87,9 +97,30 @@ namespace Keyboard_Breaker
 
 				for (int i = 0; i < MAX_KEYS; i++)
 				{
+					if (players.pointsPj1 == 5 || players.pointsPj2 == 5)
+					{
+						comboTime.appear = true;
+					}
+					else if (comboTime.comboCountP1 == 10 || comboTime.comboCountP2 == 10)
+					{
+						comboTime.appear = false;
+						comboTime.comboCountP1 = 0;
+						comboTime.comboCountP2 = 0;
+					}
 					if (keys.pj1_Point == players.keyPress)
 					{
-						if (keys.mine == true)
+						if (comboTime.appear)
+						{
+							if (IsKeyPressed(keys.pj1_Point))
+							{
+								players.pointsPj1++;
+								comboTime.comboCountP1++;
+							}
+							
+
+
+						}
+						else if (keys.mine == true)
 						{
 							players.pointsPj1 -= 2;
 						}
@@ -102,7 +133,17 @@ namespace Keyboard_Breaker
 					}
 					else if (keys.pj2_Point == players.keyPress)
 					{
-						if (keys.mine == true)
+						if (comboTime.appear)
+						{
+							if (IsKeyPressed(keys.pj2_Point))
+							{
+								players.pointsPj2++;
+								comboTime.comboCountP2++;
+							}
+							
+						
+						}
+						else if (keys.mine == true)
 						{
 							players.pointsPj2 -= 2;
 						}

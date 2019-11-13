@@ -6,8 +6,5 @@ namespace Keboard_Breaker
 	{
 		MINE mine;
 
-
-
-
 	}
 }

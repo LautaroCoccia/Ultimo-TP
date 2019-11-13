@@ -11,8 +11,9 @@ namespace Keboard_Breaker
 			bool appear;
 		};
 
-		extern MINE mine;
 
+		extern MINE mine;
+		
 	}
 }
 

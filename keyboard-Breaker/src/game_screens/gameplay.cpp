@@ -34,7 +34,7 @@ namespace Keyboard_Breaker
 			case fight:
 
 				Player::Input();
-				//Keys::PowersUps();
+				Keys::PowersUps();
 				Keys::EarnPoint();
 				Player::DrawPoints();
 				Keys::Draw();
