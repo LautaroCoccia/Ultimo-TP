@@ -20,8 +20,6 @@ namespace Keyboard_Breaker
 
 		void UpdateGameplay()
 		{
-			DrawText("Playing ", static_cast<int>(GetScreenWidth() / 2.5), GetScreenHeight() / 5, 30, WHITE);
-
 			switch (modes)
 			{
 			case normal:

@@ -12,7 +12,6 @@ namespace Keyboard_Breaker
 			int keyPress;
 			int pointsPj1;
 			int pointsPj2;
-			bool win;
 		};
 
 		struct POINTS_BAR

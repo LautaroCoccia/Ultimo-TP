@@ -1,6 +1,7 @@
 #include "players.h"
 
 #include "game_screens/gameplay.h"
+#include "game_screens/game_manager.h"
 
 namespace Keyboard_Breaker
 {
@@ -16,7 +17,6 @@ namespace Keyboard_Breaker
 			players.keyPress = 0;
 			players.pointsPj1 = 0;
 			players.pointsPj2 = 0;
-			players.win = false;
 
 			// fight mode
 			pointsBar.rec.height = 30.0f;
@@ -43,6 +43,11 @@ namespace Keyboard_Breaker
 
 		void Input()
 		{
+			if (IsKeyPressed(KEY_ESCAPE)) 
+			{
+				Game_Manager::state = Game_Manager::menu;
+			}
+
 			if (IsKeyDown(KEY_Q))
 			{
 				players.keyPress = KEY_Q;

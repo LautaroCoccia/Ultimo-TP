@@ -7,17 +7,21 @@ namespace Keyboard_Breaker
 {
 	namespace Main_Menu
 	{
-		struct Button
+		struct BUTTON
 		{
 			bool cursorOver = false;
-			Rectangle genButton = { 0,0,0,0 };
+			Rectangle genButton;
 			Color normalState = WHITE;
 			Color overState = BLUE;
 			Color actuallColor = normalState;
 		};
-		extern Button play;
-		extern Button exit;
+		extern BUTTON common_mode;
+		extern BUTTON fight_mode;
+		extern BUTTON exit;
 
+		extern bool exitGame;
+
+		void InitMenu();
 		void UpdateMenu();
 	}
 }

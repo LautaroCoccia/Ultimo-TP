@@ -7,16 +7,40 @@ namespace Keyboard_Breaker
 {
 	namespace Main_Menu
 	{
-		Button play;
-		Button exit;
+		BUTTON common_mode;
+		BUTTON fight_mode;
+		BUTTON exit;
 
-		static bool menuActive = true;
+		bool exitGame;
 
 		static int fontTittle = 40;
+		static int fontButtons = 24;
+		static float widthRec = 200;
+		static float heightRec = 50;
 
 		void CheckCollitionButtonsMouse();
 		void DrawTittle();
 		void DrawButtons();
+
+		void InitMenu()
+		{
+			common_mode.genButton.x = static_cast<float>(GetScreenWidth() - widthRec) / 2;
+			common_mode.genButton.y = static_cast<float>(GetScreenHeight() - heightRec) / 2.5f;
+			common_mode.genButton.width = widthRec;
+			common_mode.genButton.height = heightRec;
+
+			fight_mode.genButton.x = static_cast<float>(GetScreenWidth() - widthRec) / 2;
+			fight_mode.genButton.y = static_cast<float>(GetScreenHeight() - heightRec) / 2;
+			fight_mode.genButton.width = widthRec;
+			fight_mode.genButton.height = heightRec;
+
+			exit.genButton.x = static_cast<float>(GetScreenWidth() - widthRec) / 2;
+			exit.genButton.y = static_cast<float>(GetScreenHeight() - heightRec) / 1.5f;
+			exit.genButton.width = widthRec;
+			exit.genButton.height = heightRec;
+
+			exitGame = false;
+		}
 
 		void UpdateMenu()
 		{
@@ -29,22 +53,41 @@ namespace Keyboard_Breaker
 		// functions for this cpp
 		void CheckCollitionButtonsMouse()
 		{
-			if (CheckCollisionCircleRec(GetMousePosition(), 0, play.genButton))
+			if (CheckCollisionCircleRec(GetMousePosition(), 0, common_mode.genButton))
 			{
-				play.actuallColor = play.overState;
+				common_mode.actuallColor = common_mode.overState;
 				if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
 				{
 					Game_Manager::state = Game_Manager::gameplay;
+					Gameplay::modes = Gameplay::normal;
 				}
 			}
 			else
 			{
-				play.actuallColor = play.normalState;
+				common_mode.actuallColor = common_mode.normalState;
+			}
+
+			if (CheckCollisionCircleRec(GetMousePosition(), 0, fight_mode.genButton))
+			{
+				fight_mode.actuallColor = fight_mode.overState;
+				if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
+				{
+					Game_Manager::state = Game_Manager::gameplay;
+					Gameplay::modes = Gameplay::fight;
+				}
+			}
+			else
+			{
+				fight_mode.actuallColor = fight_mode.normalState;
 			}
 
 			if (CheckCollisionCircleRec(GetMousePosition(), 0, exit.genButton))
 			{
 				exit.actuallColor = exit.overState;
+				if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
+				{
+					exitGame = true;
+				}
 			}
 			else
 			{
@@ -61,13 +104,14 @@ namespace Keyboard_Breaker
 
 		void DrawButtons()
 		{
-			play.genButton = { static_cast<float>(GetScreenWidth() - 80) / 2, static_cast<float>(GetScreenHeight() - 30) / 2.5f, 80, 30 };
-			DrawRectangleRec(play.genButton, play.actuallColor);
-			DrawText("play", static_cast<int>(play.genButton.x + play.genButton.width / 2) - (MeasureText("play", 24) / 2), static_cast<int>(play.genButton.y), 24, BLACK);
+			DrawRectangleRec(common_mode.genButton, common_mode.actuallColor);
+			DrawText("Common Mode", static_cast<int>(common_mode.genButton.x + common_mode.genButton.width / 2) - (MeasureText("Common Mode", 24) / 2), static_cast<int>(common_mode.genButton.y + heightRec / 3), fontButtons, BLACK);
 
-			exit.genButton = { static_cast<float>(GetScreenWidth() - 80) / 2, static_cast<float>(GetScreenHeight() - 30) / 2, 80, 30 };
+			DrawRectangleRec(fight_mode.genButton, fight_mode.actuallColor);
+			DrawText("Fight Mode", static_cast<int>(fight_mode.genButton.x + fight_mode.genButton.width / 2) - (MeasureText("Fight Mode", 24) / 2), static_cast<int>(fight_mode.genButton.y + heightRec / 3), fontButtons, BLACK);
+
 			DrawRectangleRec(exit.genButton, exit.actuallColor);
-			DrawText("exit", static_cast<int>(exit.genButton.x + exit.genButton.width / 2) - (MeasureText("exit", 24) / 2), static_cast<int>(exit.genButton.y), 24, BLACK);
+			DrawText("Exit", static_cast<int>(exit.genButton.x + exit.genButton.width / 2) - (MeasureText("Exit", 24) / 2), static_cast<int>(exit.genButton.y + heightRec / 3), fontButtons, BLACK);
 		}
 	}
 }
