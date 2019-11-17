@@ -7,8 +7,6 @@
 #include "game_screens/gameplay.h"
 #include "game_objets/power_ups.h"
 
-
-
 namespace Keyboard_Breaker
 {
 	using namespace Player;
@@ -24,9 +22,7 @@ namespace Keyboard_Breaker
 		const float HEIGHT = 40;
 		const float WIDTH = 40;
 
-		void mineAppears();
 		void DeclarateKeys();
-		void DrawMine(int i);
 
 		void Initialice()
 		{
@@ -65,7 +61,6 @@ namespace Keyboard_Breaker
 				}
 
 				MovePoint();
-				keys.mine = false;
 				//keys.none_player; ------------> para agregar las imagenes del artista
 				//keys.player_skin;
 				//keys.player2_skin;
@@ -86,11 +81,6 @@ namespace Keyboard_Breaker
 			}
 		}
 
-		void PowersUps()
-		{
-			mineAppears();
-		}
-
 		void EarnPoint()
 		{
 			switch (modes)
@@ -98,6 +88,30 @@ namespace Keyboard_Breaker
 			case normal:
 
 				for (int i = 0; i < MAX_KEYS; i++)
+				{
+					if (keys.pj1_Point == players.keyPress)
+					{
+						Mines();
+
+						players.pointsPj1++;
+
+						players.keyPress = 0;
+						MovePoint();
+					}
+					else if (keys.pj2_Point == players.keyPress)
+					{
+						Mines();
+
+						players.pointsPj2++;
+
+						players.keyPress = 0;
+						MovePoint();
+					}
+				}
+
+				//ComboTime();
+
+				/*for (int i = 0; i < MAX_KEYS; i++)
 				{
 					if (players.pointsPj1 == 5 || players.pointsPj2 == 5)
 					{
@@ -118,9 +132,6 @@ namespace Keyboard_Breaker
 								players.pointsPj1++;
 								comboTime.comboCountP1++;
 							}
-
-
-
 						}
 						else if (keys.mine == true)
 						{
@@ -142,8 +153,6 @@ namespace Keyboard_Breaker
 								players.pointsPj2++;
 								comboTime.comboCountP2++;
 							}
-
-
 						}
 						else if (keys.mine == true)
 						{
@@ -156,7 +165,7 @@ namespace Keyboard_Breaker
 						players.keyPress = 0;
 						MovePoint();
 					}
-				}
+				}*/
 
 				break;
 			case fight:
@@ -181,10 +190,6 @@ namespace Keyboard_Breaker
 
 		void Draw()
 		{
-			if (comboTime.appear)
-			{
-				DrawText("KEYBOARD BREAKER", 10, 10, 24, RED);
-			}
 			for (int i = 0; i < MAX_KEYS; i++)
 			{
 				if (keys.ascii[i] == keys.pj1_Point)
@@ -200,7 +205,7 @@ namespace Keyboard_Breaker
 					DrawRectangleRec(keys.rec[i], WHITE);
 				}
 
-				DrawMine(i);
+				DrawPowers(i);
 
 				char example[2] = { keys.drawKey[i], '\0' };
 				DrawText(example, static_cast<int>((keys.rec[i].x + keys.rec[i].width / 2) - (MeasureText(example, 20) / 2)), static_cast<int>(keys.rec[i].y + 10), 20, BLACK);
@@ -209,30 +214,6 @@ namespace Keyboard_Breaker
 
 		// ---------------------------------------------------------------------------------------- \\
 		// functions for this cpp
-		void mineAppears()
-		{
-			if (((players.pointsPj1 % 10 == 0) && (players.pointsPj1 != 0)) || ((players.pointsPj2 % 10 == 0) && (players.pointsPj2 != 0)))
-			{
-				keys.mine = true;
-			}
-			else
-			{
-				keys.mine = false;
-			}
-		}
-
-		void DrawMine(int i)
-		{
-			if ((keys.mine == true) && (keys.ascii[i] == keys.pj1_Point))
-			{
-				DrawRectangleRec(keys.rec[i], GREEN);
-			}
-			else if ((keys.mine == true) && (keys.ascii[i] == keys.pj2_Point))
-			{
-				DrawRectangleRec(keys.rec[i], GREEN);
-			}
-		}
-
 		void DeclarateKeys()
 		{
 			keys.ascii[0] = KEY_Q;

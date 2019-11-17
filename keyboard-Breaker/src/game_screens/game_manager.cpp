@@ -7,6 +7,7 @@
 #include "win_screen.h"
 #include "game_objets/players.h"
 #include "game_objets/keys_in_screen.h"
+#include "game_objets/power_ups.h"
 
 namespace Keyboard_Breaker
 {
@@ -29,6 +30,7 @@ namespace Keyboard_Breaker
 			Gameplay::InitGameMode();
 			Player::Initialice();
 			Keys::Initialice();
+			Power_Ups::InitPowers();
 		}
 
 		void MainGameLoop()

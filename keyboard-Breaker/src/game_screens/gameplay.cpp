@@ -25,7 +25,6 @@ namespace Keyboard_Breaker
 			case normal:
 
 				Player::Input();
-				Keys::PowersUps();
 				Keys::EarnPoint();
 				Player::DrawPoints();
 				Keys::Draw();
@@ -36,7 +35,6 @@ namespace Keyboard_Breaker
 			case fight:
 
 				Player::Input();
-				Keys::PowersUps();
 				Keys::EarnPoint();
 				Player::DrawPoints();
 				Keys::Draw();

@@ -37,12 +37,10 @@ namespace Keyboard_Breaker
 				if (players.pointsPj1 >= 30 || players.pointsPj2 >= 30)
 				{
 					Game_Manager::state = Game_Manager::winScreen;
-
 				}
 				else
 				{
 					Game_Manager::state = Game_Manager::winScreen;
-
 				}
 				break;
 
@@ -51,10 +49,6 @@ namespace Keyboard_Breaker
 				if (pointsBar.rec.x <= 0 || pointsBar.rec.x >= GetScreenWidth())
 				{
 					Game_Manager::state = Game_Manager::winScreen;
-				}
-				else
-				{
-
 				}
 				break;
 			}
@@ -82,107 +76,107 @@ namespace Keyboard_Breaker
 				Game_Manager::state = Game_Manager::menu;
 			}
 
-			if (IsKeyDown(KEY_Q))
+			if (IsKeyPressed(KEY_Q))
 			{
 				players.keyPress = KEY_Q;
 			}
-			else if (IsKeyDown(KEY_W))
+			else if (IsKeyPressed(KEY_W))
 			{
 				players.keyPress = KEY_W;
 			}
-			else if (IsKeyDown(KEY_E))
+			else if (IsKeyPressed(KEY_E))
 			{
 				players.keyPress = KEY_E;
 			}
-			else if (IsKeyDown(KEY_R))
+			else if (IsKeyPressed(KEY_R))
 			{
 				players.keyPress = KEY_R;
 			}
-			else if (IsKeyDown(KEY_T))
+			else if (IsKeyPressed(KEY_T))
 			{
 				players.keyPress = KEY_T;
 			}
-			else if (IsKeyDown(KEY_Y))
+			else if (IsKeyPressed(KEY_Y))
 			{
 				players.keyPress = KEY_Y;
 			}
-			else if (IsKeyDown(KEY_U))
+			else if (IsKeyPressed(KEY_U))
 			{
 				players.keyPress = KEY_U;
 			}
-			else if (IsKeyDown(KEY_I))
+			else if (IsKeyPressed(KEY_I))
 			{
 				players.keyPress = KEY_I;
 			}
-			else if (IsKeyDown(KEY_O))
+			else if (IsKeyPressed(KEY_O))
 			{
 				players.keyPress = KEY_O;
 			}
-			else if (IsKeyDown(KEY_P))
+			else if (IsKeyPressed(KEY_P))
 			{
 				players.keyPress = KEY_P;
 			}
-			else if (IsKeyDown(KEY_A))
+			else if (IsKeyPressed(KEY_A))
 			{
 				players.keyPress = KEY_A;
 			}
-			else if (IsKeyDown(KEY_S))
+			else if (IsKeyPressed(KEY_S))
 			{
 				players.keyPress = KEY_S;
 			}
-			else if (IsKeyDown(KEY_D))
+			else if (IsKeyPressed(KEY_D))
 			{
 				players.keyPress = KEY_D;
 			}
-			else if (IsKeyDown(KEY_F))
+			else if (IsKeyPressed(KEY_F))
 			{
 				players.keyPress = KEY_F;
 			}
-			else if (IsKeyDown(KEY_G))
+			else if (IsKeyPressed(KEY_G))
 			{
 				players.keyPress = KEY_G;
 			}
-			else if (IsKeyDown(KEY_H))
+			else if (IsKeyPressed(KEY_H))
 			{
 				players.keyPress = KEY_H;
 			}
-			else if (IsKeyDown(KEY_J))
+			else if (IsKeyPressed(KEY_J))
 			{
 				players.keyPress = KEY_J;
 			}
-			else if (IsKeyDown(KEY_K))
+			else if (IsKeyPressed(KEY_K))
 			{
 				players.keyPress = KEY_K;
 			}
-			else if (IsKeyDown(KEY_L))
+			else if (IsKeyPressed(KEY_L))
 			{
 				players.keyPress = KEY_L;
 			}
-			else if (IsKeyDown(KEY_Z))
+			else if (IsKeyPressed(KEY_Z))
 			{
 				players.keyPress = KEY_Z;
 			}
-			else if (IsKeyDown(KEY_X))
+			else if (IsKeyPressed(KEY_X))
 			{
 				players.keyPress = KEY_X;
 			}
-			else if (IsKeyDown(KEY_C))
+			else if (IsKeyPressed(KEY_C))
 			{
 				players.keyPress = KEY_C;
 			}
-			else if (IsKeyDown(KEY_V))
+			else if (IsKeyPressed(KEY_V))
 			{
 				players.keyPress = KEY_V;
 			}
-			else if (IsKeyDown(KEY_B))
+			else if (IsKeyPressed(KEY_B))
 			{
 				players.keyPress = KEY_B;
 			}
-			else if (IsKeyDown(KEY_N))
+			else if (IsKeyPressed(KEY_N))
 			{
 				players.keyPress = KEY_N;
 			}
-			else if (IsKeyDown(KEY_M))
+			else if (IsKeyPressed(KEY_M))
 			{
 				players.keyPress = KEY_M;
 			}

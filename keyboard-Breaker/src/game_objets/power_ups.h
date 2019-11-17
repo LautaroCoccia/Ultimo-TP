@@ -1,15 +1,17 @@
 #ifndef POWER_UPS
 #define POWER_UPS
 
+#include "players.h"
+#include "keys_in_screen.h"
+
 namespace Keyboard_Breaker
 {
-
 	namespace Power_Ups
 	{
 		struct MINE
 		{
-			bool activateInGame;
 			bool appear;
+			int cont;
 		};
 		struct COMBOTIME
 		{
@@ -21,6 +23,10 @@ namespace Keyboard_Breaker
 		extern MINE mine;
 		extern COMBOTIME comboTime;
 
+		void InitPowers();
+		void Mines();
+		void ComboTime();
+		void DrawPowers(int i);
 	}
 }
 
