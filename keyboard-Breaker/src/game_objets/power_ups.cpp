@@ -11,7 +11,7 @@ namespace Keyboard_Breaker
 		COMBOTIME comboTime;
 
 		const int MINE_DAMEGE = 3;
-		const int MAX_CONT_MINE = 8;
+		const int MAX_CONT_MINE = 10;
 
 		void DrawMines(int i);
 		void DrawComboTime();
@@ -36,7 +36,7 @@ namespace Keyboard_Breaker
 
 			if (keys.pj1_Point == players.keyPress)
 			{
-				if (mine.appear == true)
+				if (mine.appear)
 				{
 					players.pointsPj1 -= MINE_DAMEGE;
 					mine.appear = false;
@@ -48,7 +48,7 @@ namespace Keyboard_Breaker
 			}
 			else if (keys.pj2_Point == players.keyPress)
 			{
-				if (mine.appear == true)
+				if (mine.appear)
 				{
 					players.pointsPj2 -= MINE_DAMEGE;
 					mine.appear = false;
@@ -62,43 +62,33 @@ namespace Keyboard_Breaker
 
 		void ComboTime()
 		{
-			for (int i = 0; i < MAX_KEYS; i++)
+			if (players.pointsPj1 == 5 || players.pointsPj2 == 5)
 			{
-				if (players.pointsPj1 == 5 || players.pointsPj2 == 5)
-				{
-					comboTime.appear = true;
-				}
-				else if (comboTime.comboCountP1 == 10 || comboTime.comboCountP2 == 10)
-				{
-					comboTime.appear = false;
-					comboTime.comboCountP1 = 0;
-					comboTime.comboCountP2 = 0;
-				}
+				comboTime.appear = true;
+			}
+			else if (comboTime.comboCountP1 == 10 || comboTime.comboCountP2 == 10)
+			{
+				comboTime.appear = false;
+				comboTime.comboCountP1 = 0;
+				comboTime.comboCountP2 = 0;
+			}
 
+			if (comboTime.appear)
+			{
 				if (keys.pj1_Point == players.keyPress)
 				{
-					if (comboTime.appear)
+					if (IsKeyPressed(keys.pj1_Point))
 					{
-						if (IsKeyPressed(keys.pj1_Point))
-						{
-							players.pointsPj1++;
-							comboTime.comboCountP1++;
-						}
-					players.keyPress = 0;
-					MovePoint();
+						players.pointsPj1++;
+						comboTime.comboCountP1++;
 					}
 				}
 				else if (keys.pj2_Point == players.keyPress)
 				{
-					if (comboTime.appear)
+					if (IsKeyPressed(keys.pj2_Point))
 					{
-						if (IsKeyPressed(keys.pj2_Point))
-						{
-							players.pointsPj2++;
-							comboTime.comboCountP2++;
-						}
-					players.keyPress = 0;
-					MovePoint();
+						players.pointsPj2++;
+						comboTime.comboCountP2++;
 					}
 				}
 			}
@@ -132,7 +122,7 @@ namespace Keyboard_Breaker
 		{
 			if (comboTime.appear)
 			{
-				DrawText("KEYBOARD BREAKER", 10, 10, 24, RED);
+				DrawText("KEYBOARD BREAKER", (GetScreenWidth() / 2) - (MeasureText("KEYBOARD BREAKER", 30) / 2), GetScreenHeight() / 4, 30, RED);
 			}
 		}
 

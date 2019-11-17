@@ -24,17 +24,19 @@ namespace Keyboard_Breaker
 
 		void DeclarateKeys();
 
+
 		void Initialice()
 		{
-			comboTime.appear = false;
-			comboTime.comboCountP1 = 0;
-			comboTime.comboCountP2 = 0;
 			float distanceX = static_cast<float>(GetScreenWidth()) / 4;
 			float distanceX2 = static_cast<float>(GetScreenWidth()) / 3.8f;
 			float distanceY = static_cast<float>(GetScreenHeight()) / 2.5f;
 
 			float pixelsX = distanceX;
 			float pixelsY = distanceY;
+
+			comboTime.appear = false;
+			comboTime.comboCountP1 = 0;
+			comboTime.comboCountP2 = 0;
 
 			DeclarateKeys();
 
@@ -86,24 +88,27 @@ namespace Keyboard_Breaker
 			switch (modes)
 			{
 			case normal:
-
 				for (int i = 0; i < MAX_KEYS; i++)
 				{
 					if (keys.pj1_Point == players.keyPress)
 					{
 						Mines();
-
-						players.pointsPj1++;
-
+						ComboTime();
+						if (!comboTime.appear) 
+						{
+							players.pointsPj1++;
+						}
 						players.keyPress = 0;
 						MovePoint();
 					}
 					else if (keys.pj2_Point == players.keyPress)
 					{
 						Mines();
-
-						players.pointsPj2++;
-
+						ComboTime();
+						if (!comboTime.appear)
+						{
+							players.pointsPj2++;
+						}
 						players.keyPress = 0;
 						MovePoint();
 					}
