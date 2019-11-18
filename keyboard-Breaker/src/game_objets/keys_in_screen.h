@@ -30,7 +30,6 @@ namespace Keyboard_Breaker
 		extern KEYS keys;
 
 		void Initialice();
-		void MovePoint();
 		void EarnPoint();
 		void Draw();
 	}

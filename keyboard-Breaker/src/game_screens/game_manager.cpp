@@ -18,19 +18,26 @@ namespace Keyboard_Breaker
 		const int SCREEN_BASE_WIDTH = 1200;
 		const int SCREEN_BASE_HEIGHT = 700;
 
-		static void InitializeWindowNMainLoop();
-		static void InitializeWindowNMainLoop()
+		void InitializeWindowNMainLoop();
+		void InitializeValues();
+
+		void InitializeWindowNMainLoop()
 		{
 			InitWindow(SCREEN_BASE_WIDTH, SCREEN_BASE_HEIGHT, "Keyboard Breaker.exe");
 			SetExitKey(0);
 			state = menu;
 
+			InitializeValues();
+		}
+
+		void InitializeValues() 
+		{
 			Main_Menu::InitMenu();
 			Win_Screen::InitWin();
 			Gameplay::InitGameMode();
 			Player::Initialice();
 			Keys::Initialice();
-			Power_Ups::InitPowers();
+			Power_Ups::InitPowers();		
 		}
 
 		void MainGameLoop()
@@ -45,6 +52,7 @@ namespace Keyboard_Breaker
 				switch (state)
 				{
 				case menu:
+					InitializeValues();
 					Main_Menu::UpdateMenu();
 					break;
 				case gameplay:

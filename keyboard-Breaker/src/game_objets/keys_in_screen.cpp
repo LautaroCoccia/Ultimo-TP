@@ -18,12 +18,11 @@ namespace Keyboard_Breaker
 		KEYS keys;
 		FIGHT_BAR fightBar;
 
-
 		const float HEIGHT = 40;
 		const float WIDTH = 40;
 
+		int MovePoint(int move_point, int static_point);
 		void DeclarateKeys();
-
 
 		void Initialice()
 		{
@@ -62,24 +61,11 @@ namespace Keyboard_Breaker
 					pixelsY += keys.rec[i].height + 20;
 				}
 
-				MovePoint();
+				keys.pj1_Point = MovePoint(keys.pj1_Point, keys.pj2_Point);
+				keys.pj2_Point = MovePoint(keys.pj2_Point, keys.pj1_Point);
 				//keys.none_player; ------------> para agregar las imagenes del artista
 				//keys.player_skin;
 				//keys.player2_skin;
-			}
-		}
-
-		void MovePoint()
-		{
-			if (!comboTime.appear)
-			{
-				keys.pj1_Point = keys.pj2_Point;
-
-				while (keys.pj1_Point == keys.pj2_Point)
-				{
-					keys.pj1_Point = GetRandomValue(KEY_A, KEY_Z);
-					keys.pj2_Point = GetRandomValue(KEY_A, KEY_Z);
-				}
 			}
 		}
 
@@ -93,13 +79,13 @@ namespace Keyboard_Breaker
 					if (keys.pj1_Point == players.keyPress)
 					{
 						ComboTime();
-						if (!comboTime.appear) 
+						if (!comboTime.appear)
 						{
 							Mines();
 							players.pointsPj1++;
 						}
 						players.keyPress = 0;
-						MovePoint();
+						keys.pj1_Point = MovePoint(keys.pj1_Point, keys.pj2_Point);
 					}
 					else if (keys.pj2_Point == players.keyPress)
 					{
@@ -110,7 +96,7 @@ namespace Keyboard_Breaker
 							players.pointsPj2++;
 						}
 						players.keyPress = 0;
-						MovePoint();
+						keys.pj2_Point = MovePoint(keys.pj2_Point, keys.pj1_Point);
 					}
 				}
 				break;
@@ -121,13 +107,13 @@ namespace Keyboard_Breaker
 					{
 						pointsBar.rec.x -= pointsBar.movement;
 						players.keyPress = 0;
-						MovePoint();
+						keys.pj1_Point = MovePoint(keys.pj1_Point, keys.pj2_Point);
 					}
 					else if (keys.pj2_Point == players.keyPress)
 					{
 						pointsBar.rec.x += pointsBar.movement;
 						players.keyPress = 0;
-						MovePoint();
+						keys.pj2_Point = MovePoint(keys.pj2_Point, keys.pj1_Point);
 					}
 				}
 				break;
@@ -160,6 +146,20 @@ namespace Keyboard_Breaker
 
 		// ---------------------------------------------------------------------------------------- \\
 		// functions for this cpp
+		int MovePoint(int move_point, int static_point)
+		{
+			if (!comboTime.appear)
+			{
+				move_point = static_point;
+
+				while (move_point == static_point)
+				{
+					move_point = GetRandomValue(KEY_A, KEY_Z);
+				}
+			}
+			return move_point;
+		}
+
 		void DeclarateKeys()
 		{
 			keys.ascii[0] = KEY_Q;
