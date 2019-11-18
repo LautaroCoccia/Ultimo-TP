@@ -92,10 +92,10 @@ namespace Keyboard_Breaker
 				{
 					if (keys.pj1_Point == players.keyPress)
 					{
-						Mines();
 						ComboTime();
 						if (!comboTime.appear) 
 						{
+							Mines();
 							players.pointsPj1++;
 						}
 						players.keyPress = 0;
@@ -103,78 +103,18 @@ namespace Keyboard_Breaker
 					}
 					else if (keys.pj2_Point == players.keyPress)
 					{
-						Mines();
 						ComboTime();
 						if (!comboTime.appear)
 						{
+							Mines();
 							players.pointsPj2++;
 						}
 						players.keyPress = 0;
 						MovePoint();
 					}
 				}
-
-				//ComboTime();
-
-				/*for (int i = 0; i < MAX_KEYS; i++)
-				{
-					if (players.pointsPj1 == 5 || players.pointsPj2 == 5)
-					{
-						comboTime.appear = true;
-					}
-					else if (comboTime.comboCountP1 == 10 || comboTime.comboCountP2 == 10)
-					{
-						comboTime.appear = false;
-						comboTime.comboCountP1 = 0;
-						comboTime.comboCountP2 = 0;
-					}
-					if (keys.pj1_Point == players.keyPress)
-					{
-						if (comboTime.appear)
-						{
-							if (IsKeyPressed(keys.pj1_Point))
-							{
-								players.pointsPj1++;
-								comboTime.comboCountP1++;
-							}
-						}
-						else if (keys.mine == true)
-						{
-							players.pointsPj1 -= 2;
-						}
-						else
-						{
-							players.pointsPj1++;
-						}
-						players.keyPress = 0;
-						MovePoint();
-					}
-					else if (keys.pj2_Point == players.keyPress)
-					{
-						if (comboTime.appear)
-						{
-							if (IsKeyPressed(keys.pj2_Point))
-							{
-								players.pointsPj2++;
-								comboTime.comboCountP2++;
-							}
-						}
-						else if (keys.mine == true)
-						{
-							players.pointsPj2 -= 2;
-						}
-						else
-						{
-							players.pointsPj2++;
-						}
-						players.keyPress = 0;
-						MovePoint();
-					}
-				}*/
-
 				break;
 			case fight:
-
 				for (int i = 0; i < MAX_KEYS; i++)
 				{
 					if (keys.pj1_Point == players.keyPress)
@@ -190,6 +130,7 @@ namespace Keyboard_Breaker
 						MovePoint();
 					}
 				}
+				break;
 			}
 		}
 

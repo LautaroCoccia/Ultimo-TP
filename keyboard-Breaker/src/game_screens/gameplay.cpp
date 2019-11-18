@@ -1,11 +1,10 @@
+#include <iostream>
 #include "gameplay.h"
 
 #include "raylib.h"
 
 #include "game_objets/players.h"
 #include "game_objets/keys_in_screen.h"
-
-#include <iostream>
 
 namespace Keyboard_Breaker
 {

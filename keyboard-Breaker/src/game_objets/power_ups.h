@@ -18,6 +18,7 @@ namespace Keyboard_Breaker
 			bool appear;
 			int comboCountP1;
 			int comboCountP2;
+			int cont;
 		};
 
 		extern MINE mine;

@@ -15,13 +15,13 @@ namespace Keyboard_Breaker
 	{
 		STATE state;
 
-		const int screenBaseWidth = 1200;
-		const int screenBaseHeight = 700;
+		const int SCREEN_BASE_WIDTH = 1200;
+		const int SCREEN_BASE_HEIGHT = 700;
 
 		static void InitializeWindowNMainLoop();
 		static void InitializeWindowNMainLoop()
 		{
-			InitWindow(screenBaseWidth, screenBaseHeight, "Keyboard Breaker.exe");
+			InitWindow(SCREEN_BASE_WIDTH, SCREEN_BASE_HEIGHT, "Keyboard Breaker.exe");
 			SetExitKey(0);
 			state = menu;
 
