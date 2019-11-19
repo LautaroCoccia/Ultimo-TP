@@ -69,8 +69,7 @@ namespace Keyboard_Breaker
 			{
 				exit.actuallColor = exit.normalState;
 			}
-
-
+					   
 		}
 
 		void DrawTittle()

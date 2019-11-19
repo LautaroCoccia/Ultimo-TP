@@ -84,7 +84,7 @@ namespace Keyboard_Breaker
 			if (CheckCollisionCircleRec(GetMousePosition(), 0, exit.genButton))
 			{
 				exit.actuallColor = exit.overState;
-				if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
+				if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
 				{
 					exitGame = true;
 				}

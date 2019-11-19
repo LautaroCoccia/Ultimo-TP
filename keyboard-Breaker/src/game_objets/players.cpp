@@ -34,7 +34,7 @@ namespace Keyboard_Breaker
 			{
 			case normal:
 
-				if (players.pointsPj1 >= 10 || players.pointsPj2 >= 10)
+				if (players.pointsPj1 >= 30 || players.pointsPj2 >= 30)
 				{
 					Game_Manager::state = Game_Manager::winScreen;
 				}
