@@ -34,11 +34,7 @@ namespace Keyboard_Breaker
 			{
 			case normal:
 
-				if (players.pointsPj1 >= 30 || players.pointsPj2 >= 30)
-				{
-					Game_Manager::state = Game_Manager::winScreen;
-				}
-				else
+				if (players.pointsPj1 >= 10 || players.pointsPj2 >= 10)
 				{
 					Game_Manager::state = Game_Manager::winScreen;
 				}
@@ -51,7 +47,9 @@ namespace Keyboard_Breaker
 					Game_Manager::state = Game_Manager::winScreen;
 				}
 				break;
+			
 			}
+
 		}
 
 		void DrawPoints()

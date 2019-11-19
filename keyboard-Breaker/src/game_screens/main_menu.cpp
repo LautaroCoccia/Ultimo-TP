@@ -56,7 +56,7 @@ namespace Keyboard_Breaker
 			if (CheckCollisionCircleRec(GetMousePosition(), 0, common_mode.genButton))
 			{
 				common_mode.actuallColor = common_mode.overState;
-				if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
+				if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
 				{
 					Game_Manager::state = Game_Manager::gameplay;
 					Gameplay::modes = Gameplay::normal;
@@ -70,7 +70,7 @@ namespace Keyboard_Breaker
 			if (CheckCollisionCircleRec(GetMousePosition(), 0, fight_mode.genButton))
 			{
 				fight_mode.actuallColor = fight_mode.overState;
-				if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
+				if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
 				{
 					Game_Manager::state = Game_Manager::gameplay;
 					Gameplay::modes = Gameplay::fight;
