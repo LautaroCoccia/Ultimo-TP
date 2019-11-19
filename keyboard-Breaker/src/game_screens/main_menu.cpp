@@ -99,7 +99,7 @@ namespace Keyboard_Breaker
 		void DrawTittle()
 		{
 			DrawText("KEYBOARD BREAKER", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("KEYBOARD BREAKER", fontTittle) / 2)), GetScreenHeight() / 5, fontTittle, WHITE);
-			DrawText("v0.1", GetScreenWidth() - 40, GetScreenHeight() - 20, 20, RAYWHITE);
+			DrawText("v0.2", GetScreenWidth() - 40, GetScreenHeight() - 20, 20, RAYWHITE);
 		}
 
 		void DrawButtons()
