@@ -76,7 +76,15 @@ namespace Keyboard_Breaker
 				Game_Manager::state = Game_Manager::menu;
 			}
 
-			if (IsKeyPressed(KEY_Q))
+			if (IsKeyPressed(KEY_ZERO))
+			{
+				players.keyPress = KEY_ZERO;
+			}
+			else if (IsKeyPressed(KEY_ONE))
+			{
+				players.keyPress = KEY_ONE;
+			}
+			else if (IsKeyPressed(KEY_Q))
 			{
 				players.keyPress = KEY_Q;
 			}

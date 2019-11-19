@@ -74,9 +74,11 @@ namespace Keyboard_Breaker
 			switch (modes)
 			{
 			case normal:
-				for (int i = 0; i < MAX_KEYS; i++)
+				if (keys.pj1_Point == players.keyPress || blockKeyPj1.ascii == players.keyPress)
 				{
-					if (keys.pj1_Point == players.keyPress)
+					BlockKey();
+
+					if (!blockKeyPj2.activate)
 					{
 						ComboTime();
 						if (!comboTime.appear)
@@ -87,7 +89,12 @@ namespace Keyboard_Breaker
 						players.keyPress = 0;
 						keys.pj1_Point = MovePoint(keys.pj1_Point, keys.pj2_Point);
 					}
-					else if (keys.pj2_Point == players.keyPress)
+				}
+				else if (keys.pj2_Point == players.keyPress || blockKeyPj2.ascii == players.keyPress)
+				{
+					BlockKey();
+
+					if (!blockKeyPj1.activate)
 					{
 						ComboTime();
 						if (!comboTime.appear)
@@ -101,20 +108,17 @@ namespace Keyboard_Breaker
 				}
 				break;
 			case fight:
-				for (int i = 0; i < MAX_KEYS; i++)
+				if (keys.pj1_Point == players.keyPress)
 				{
-					if (keys.pj1_Point == players.keyPress)
-					{
-						pointsBar.rec.x -= pointsBar.movement;
-						players.keyPress = 0;
-						keys.pj1_Point = MovePoint(keys.pj1_Point, keys.pj2_Point);
-					}
-					else if (keys.pj2_Point == players.keyPress)
-					{
-						pointsBar.rec.x += pointsBar.movement;
-						players.keyPress = 0;
-						keys.pj2_Point = MovePoint(keys.pj2_Point, keys.pj1_Point);
-					}
+					pointsBar.rec.x -= pointsBar.movement;
+					players.keyPress = 0;
+					keys.pj1_Point = MovePoint(keys.pj1_Point, keys.pj2_Point);
+				}
+				else if (keys.pj2_Point == players.keyPress)
+				{
+					pointsBar.rec.x += pointsBar.movement;
+					players.keyPress = 0;
+					keys.pj2_Point = MovePoint(keys.pj2_Point, keys.pj1_Point);
 				}
 				break;
 			}
