@@ -40,10 +40,6 @@ namespace Keyboard_Breaker
 				{
 					Game_Manager::state = Game_Manager::winScreen;
 				}
-				else
-				{
-					Game_Manager::state = Game_Manager::winScreen;
-				}
 				break;
 
 			case fight:
@@ -53,7 +49,9 @@ namespace Keyboard_Breaker
 					Game_Manager::state = Game_Manager::winScreen;
 				}
 				break;
+			
 			}
+
 		}
 
 		void DrawPoints()

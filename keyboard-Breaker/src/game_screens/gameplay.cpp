@@ -26,6 +26,7 @@ namespace Keyboard_Breaker
 				Player::Input();
 				Keys::EarnPoint();
 				Player::DrawPoints();
+				Player::Win();
 				Keys::Draw();
 
 				DrawText("v0.2", GetScreenWidth() - 40, GetScreenHeight() - 20, 20, RAYWHITE);
@@ -41,7 +42,10 @@ namespace Keyboard_Breaker
 				DrawText("v0.2", GetScreenWidth() - 40, GetScreenHeight() - 20, 20, RAYWHITE);
 
 				break;
-			}
+
+		}
+
+
 		}
 	}
 }
