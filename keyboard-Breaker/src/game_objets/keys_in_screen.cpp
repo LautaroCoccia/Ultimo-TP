@@ -20,6 +20,8 @@ namespace Keyboard_Breaker
 
 		const float HEIGHT = 40;
 		const float WIDTH = 40;
+		const float DISTANCE = 20;
+		const int FONT_KEYS = 20;
 
 		int MovePoint(int move_point, int static_point);
 		void DeclarateKeys();
@@ -46,19 +48,19 @@ namespace Keyboard_Breaker
 				keys.rec[i].x = pixelsX;
 				keys.rec[i].y = pixelsY;
 
-				pixelsX += keys.rec[i].width + 20;
+				pixelsX += keys.rec[i].width + DISTANCE;
 
 				if ((i == 9) || (i == 18))
 				{
 					if (i == 18)
 					{
-						pixelsX = distanceX + keys.rec[i].width + 20;
+						pixelsX = distanceX + keys.rec[i].width + DISTANCE;
 					}
 					else
 					{
 						pixelsX = distanceX2;
 					}
-					pixelsY += keys.rec[i].height + 20;
+					pixelsY += keys.rec[i].height + DISTANCE;
 				}
 
 				keys.pj1_Point = MovePoint(keys.pj1_Point, keys.pj2_Point);
@@ -144,7 +146,7 @@ namespace Keyboard_Breaker
 				DrawPowers(i);
 
 				char example[2] = { keys.drawKey[i], '\0' };
-				DrawText(example, static_cast<int>((keys.rec[i].x + keys.rec[i].width / 2) - (MeasureText(example, 20) / 2)), static_cast<int>(keys.rec[i].y + 10), 20, BLACK);
+				DrawText(example, static_cast<int>((keys.rec[i].x + keys.rec[i].width / 2) - (MeasureText(example, FONT_KEYS) / 2)), static_cast<int>(keys.rec[i].y + 10), FONT_KEYS, BLACK);
 			}
 		}
 

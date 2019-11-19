@@ -15,13 +15,18 @@ namespace Keyboard_Breaker
 		BLOCK_KEY blockKeyPj1;
 		BLOCK_KEY blockKeyPj2;
 
-		const int MINE_DAMEGE = 3;
+		const int MINE_DAMEGE = 6;
 		const int MAX_CONT_MINE = 5;
 		const int MAX_CONT_COMBOTIME = 10;
 		const int MAX_CONT_BLOCKKEY = 12;
 		const int MAX_BLOCKPLAYER = 10;
 
-		const int FONT_COMBO = 50;
+		const float HEIGHT = 40;
+		const float WIDTH = 40;
+		const float DISTANCE = 20;
+
+		const int FONT_TITLE = 50;
+		const int FONT_KEYS = 20;
 
 		void DrawMines(int i);
 		void DrawComboTime();
@@ -39,14 +44,20 @@ namespace Keyboard_Breaker
 			comboTime.cont = 0;
 
 
-			blockKeyPj1.buttom = Rectangle{ 70, 70, 60, 40 };
+			float distanceX = static_cast<float>((GetScreenWidth()) / 4) - (WIDTH / 2);
+			float distanceY = static_cast<float>(GetScreenHeight()) / 2.5f - HEIGHT - DISTANCE;
+
+			blockKeyPj1.buttom = Rectangle{ distanceX, distanceY, HEIGHT, WIDTH };
 			blockKeyPj1.ascii = KEY_ONE;
 			blockKeyPj1.appear = false;
 			blockKeyPj1.activate = false;
 			blockKeyPj1.contPj = 0;
 			blockKeyPj1.desblockPj = 0;
 
-			blockKeyPj2.buttom = Rectangle{ 70, 120, 60, 40 };
+			distanceX = 810;
+			distanceY = static_cast<float>(GetScreenHeight()) / 2.5f - HEIGHT - DISTANCE;
+
+			blockKeyPj2.buttom = Rectangle{ distanceX, distanceY, HEIGHT, WIDTH };
 			blockKeyPj2.ascii = KEY_ZERO;
 			blockKeyPj2.appear = false;
 			blockKeyPj2.activate = false;
@@ -206,9 +217,6 @@ namespace Keyboard_Breaker
 			DrawMines(i);
 			DrawComboTime();
 			DrawBlockKey();
-
-			DrawText(FormatText("%i", mine.cont), 400, 10, 40, WHITE);
-			DrawText(FormatText("%i", comboTime.cont), 400, 40, 40, GREEN);
 		}
 
 		//-------------------------------------------
@@ -219,12 +227,17 @@ namespace Keyboard_Breaker
 			{
 				if (keys.ascii[i] == keys.pj1_Point)
 				{
-					DrawRectangleRec(keys.rec[i], DARKGREEN);
+					DrawRectangleRec(keys.rec[i], BLUE);
+					DrawRectangleLinesEx(keys.rec[i], 6, GREEN);
+					//DrawRectangleRoundedLines(Rectangle rec, float roundness, int segments, int lineThick, Color color);
 				}
 				else if (keys.ascii[i] == keys.pj2_Point)
 				{
-					DrawRectangleRec(keys.rec[i], GREEN);
+					DrawRectangleRec(keys.rec[i], RED);
+					DrawRectangleLinesEx(keys.rec[i], 6, GREEN);
 				}
+				
+				DrawText("MINES!!", ((GetScreenWidth() / 2) - (MeasureText("MINES!!", FONT_TITLE) / 2)), (GetScreenHeight() / 2 + GetScreenHeight() / 4), FONT_TITLE, GREEN);
 			}
 		}
 
@@ -232,37 +245,21 @@ namespace Keyboard_Breaker
 		{
 			if (comboTime.appear)
 			{
-				DrawText("KEYBOARD BREAKER", (GetScreenWidth() / 2) - (MeasureText("KEYBOARD BREAKER", FONT_COMBO) / 2), GetScreenHeight() / 4, FONT_COMBO, RED);
+				DrawText("KEYBOARD BREAKER", (GetScreenWidth() / 2) - (MeasureText("KEYBOARD BREAKER", FONT_TITLE) / 2), GetScreenHeight() / 4, FONT_TITLE, RED);
 			}
 		}
 
 		void DrawBlockKey()
 		{
-			if (blockKeyPj1.activate)
-			{
-				DrawText(FormatText("%i", blockKeyPj2.desblockPj), 400, 600, 40, RED);
-			}
-			else
-			{
-				DrawText(FormatText("%i", blockKeyPj2.contPj), 400, 600, 40, WHITE);
-			}
-
-			if (blockKeyPj2.activate)
-			{
-				DrawText(FormatText("%i", blockKeyPj1.desblockPj), 400, 650, 40, BLUE);
-			}
-			else
-			{
-				DrawText(FormatText("%i", blockKeyPj1.contPj), 400, 650, 40, WHITE);
-			}
-
 			if (blockKeyPj1.appear)
 			{
 				DrawRectangleRec(blockKeyPj1.buttom, BLUE);
+				DrawText("1", static_cast<int>((blockKeyPj1.buttom.x + blockKeyPj1.buttom.width / 2) - (MeasureText("1", FONT_KEYS) / 2)), static_cast<int>(blockKeyPj1.buttom.y + 10), FONT_KEYS, BLACK);
 			}
 			if (blockKeyPj2.appear)
 			{
 				DrawRectangleRec(blockKeyPj2.buttom, RED);
+				DrawText("0", static_cast<int>((blockKeyPj2.buttom.x + blockKeyPj2.buttom.width / 2) - (MeasureText("0", FONT_KEYS) / 2)), static_cast<int>(blockKeyPj2.buttom.y + 10), FONT_KEYS, BLACK);
 			}
 		}
 

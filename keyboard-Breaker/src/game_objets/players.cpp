@@ -12,6 +12,8 @@ namespace Keyboard_Breaker
 		PLAYER players;
 		POINTS_BAR pointsBar; // fight mode only
 
+		const int FONT_POINT = 100;
+
 		void Initialice()
 		{
 			players.keyPress = 0;
@@ -59,8 +61,8 @@ namespace Keyboard_Breaker
 			switch (modes)
 			{
 			case normal:
-				DrawText(FormatText("%i", players.pointsPj1), 40, 20, 40, BLUE);
-				DrawText(FormatText("%i", players.pointsPj2), GetScreenWidth() - 60, 20, 40, RED);
+				DrawText(FormatText("%i", players.pointsPj1), 80, 20, FONT_POINT, BLUE);
+				DrawText(FormatText("%i", players.pointsPj2), GetScreenWidth() - 140, 20, FONT_POINT, RED);
 				break;
 
 			case fight:
