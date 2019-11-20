@@ -24,6 +24,7 @@ namespace Keyboard_Breaker
 
 		extern PLAYER players;
 		extern POINTS_BAR pointsBar; // fight mode only
+		extern const int MAX_POINTS;
 
 		void Initialice();
 		void Win();

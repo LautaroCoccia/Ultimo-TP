@@ -3,6 +3,7 @@
 #include "game_manager.h"
 
 #include "main_menu.h"
+#include "game_objets/players.h"
 
 namespace Keyboard_Breaker
 {
@@ -74,8 +75,16 @@ namespace Keyboard_Breaker
 
 		void DrawTittle()
 		{
-			DrawText("YOU WIN", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("YOU WIN", fontTittle) / 2)), GetScreenHeight() / 5, fontTittle, WHITE);
-			DrawText("v0.1", GetScreenWidth() - 40, GetScreenHeight() - 20, 20, RAYWHITE);
+			if (Player::players.pointsPj1 >= Player::MAX_POINTS||Player::pointsBar.rec.x + Player::pointsBar.rec.width >= GetScreenWidth())
+			{
+				DrawText("PLAYER 1 WINS", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("PLAYER 1 WINS", fontTittle) / 2)), GetScreenHeight() / 5, fontTittle, WHITE);
+			}
+			else
+			{
+				DrawText("PLAYER 2 WINS", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("PLAYER 2 WINS", fontTittle) / 2)), GetScreenHeight() / 5, fontTittle, WHITE);
+
+			}
+			DrawText("v0.2", GetScreenWidth() - 40, GetScreenHeight() - 20, 20, RAYWHITE);
 		}
 
 		void DrawButtons()

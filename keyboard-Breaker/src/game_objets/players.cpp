@@ -3,6 +3,9 @@
 #include "game_screens/gameplay.h"
 #include "game_screens/game_manager.h"
 
+
+#include <iostream>
+using namespace std;
 namespace Keyboard_Breaker
 {
 	using namespace Gameplay;
@@ -13,6 +16,7 @@ namespace Keyboard_Breaker
 		POINTS_BAR pointsBar; // fight mode only
 
 		const int FONT_POINT = 100;
+		const int MAX_POINTS = 30;
 
 		void Initialice()
 		{
@@ -23,9 +27,9 @@ namespace Keyboard_Breaker
 			players.winPj2 = false;
 
 			// fight mode
-			pointsBar.rec.height = 30.0f;
-			pointsBar.rec.width = 300.0f;
-			pointsBar.rec.x = (GetScreenWidth()/2 - pointsBar.rec.width/2);
+			pointsBar.rec.height = 50.0f;
+			pointsBar.rec.width = static_cast<float>(GetScreenWidth());
+			pointsBar.rec.x = static_cast<float>((GetScreenWidth()* -1) /2);
 			pointsBar.rec.y = 20;
 			pointsBar.movement = 50;
 		}
@@ -36,7 +40,7 @@ namespace Keyboard_Breaker
 			{
 			case normal:
 
-				if (players.pointsPj1 >= 30 || players.pointsPj2 >= 30)
+				if (players.pointsPj1 >= MAX_POINTS || players.pointsPj2 >= MAX_POINTS)
 				{
 					Game_Manager::state = Game_Manager::winScreen;
 				}
@@ -44,8 +48,9 @@ namespace Keyboard_Breaker
 
 			case fight:
 
-				if (pointsBar.rec.x <= 0 || pointsBar.rec.x >= GetScreenWidth())
+				if ((pointsBar.rec.x + pointsBar.rec.width) <= 0 || (pointsBar.rec.x + pointsBar.rec.width) >= GetScreenWidth())
 				{
+					
 					Game_Manager::state = Game_Manager::winScreen;
 				}
 				break;
@@ -64,7 +69,8 @@ namespace Keyboard_Breaker
 				break;
 
 			case fight:
-				DrawRectangleRec(pointsBar.rec, WHITE);
+				DrawRectangle(0, 20, GetScreenWidth(), 50,RED );
+				DrawRectangleRec(pointsBar.rec, BLUE);
 				break;
 			}
 		}

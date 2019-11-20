@@ -25,7 +25,7 @@ namespace Keyboard_Breaker
 		const float WIDTH = 40;
 		const float DISTANCE = 20;
 
-		const int FONT_TITLE = 50;
+		const int FONT_TITLE = 70;
 		const int FONT_KEYS = 20;
 
 		void DrawMines(int i);

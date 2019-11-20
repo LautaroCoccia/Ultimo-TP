@@ -112,13 +112,13 @@ namespace Keyboard_Breaker
 			case fight:
 				if (keys.pj1_Point == players.keyPress)
 				{
-					pointsBar.rec.x -= pointsBar.movement;
+					pointsBar.rec.x += pointsBar.movement;
 					players.keyPress = 0;
 					keys.pj1_Point = MovePoint(keys.pj1_Point, keys.pj2_Point);
 				}
 				else if (keys.pj2_Point == players.keyPress)
 				{
-					pointsBar.rec.x += pointsBar.movement;
+					pointsBar.rec.x -= pointsBar.movement;
 					players.keyPress = 0;
 					keys.pj2_Point = MovePoint(keys.pj2_Point, keys.pj1_Point);
 				}
