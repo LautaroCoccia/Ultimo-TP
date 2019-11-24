@@ -1,11 +1,11 @@
-#ifndef MAIN_MENU_H
-#define MAIN_MENU_H
+#ifndef HOW_TO_PLAY
+#define HOW_TO_PLAY
 
 #include "raylib.h"
 
 namespace Keyboard_Breaker
 {
-	namespace Main_Menu
+	namespace How_to_play
 	{
 		struct BUTTON
 		{
@@ -13,15 +13,12 @@ namespace Keyboard_Breaker
 			Rectangle genButton;
 			Color normalState = WHITE;
 			Color overState = BLUE;
-			Color exitState = RED;
 			Color actuallColor = normalState;
 		};
 
-		extern bool exitGame;
-
-		void InitMenu();
-		void UpdateMenu();
+		void InitHowToPlay();
+		void UpdateHowToPlay();
 	}
 }
 
-#endif
+#endif //HOW_TO_PLAY

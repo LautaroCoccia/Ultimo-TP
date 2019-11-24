@@ -5,7 +5,8 @@ namespace Keyboard_Breaker
 {
 	namespace Gameplay
 	{
-		enum gameModes {
+		enum gameModes 
+		{
 			normal, fight
 		};
 

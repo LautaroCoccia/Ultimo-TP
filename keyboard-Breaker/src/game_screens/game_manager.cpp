@@ -5,6 +5,7 @@
 #include "main_menu.h"
 #include "gameplay.h"
 #include "win_screen.h"
+#include "how_to_play.h"
 #include "game_objets/players.h"
 #include "game_objets/keys_in_screen.h"
 #include "game_objets/power_ups.h"
@@ -33,8 +34,9 @@ namespace Keyboard_Breaker
 		void InitializeValues() 
 		{
 			Main_Menu::InitMenu();
-			Win_Screen::InitWin();
 			Gameplay::InitGameMode();
+			How_to_play::InitHowToPlay();
+			Win_Screen::InitWin();
 			Player::Initialice();
 			Keys::Initialice();
 			Power_Ups::InitPowers();		
@@ -61,9 +63,14 @@ namespace Keyboard_Breaker
 				case winScreen:
 					Win_Screen::UpdateWin();
 					break;
+				case howToPlay:
+					How_to_play::UpdateHowToPlay();
+					break;
 				case credits:
 					break;
 				}
+
+				DrawText("v0.2", GetScreenWidth() - 40, GetScreenHeight() - 20, 20, RAYWHITE);
 
 				EndDrawing();
 			}

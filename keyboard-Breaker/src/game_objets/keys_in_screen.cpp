@@ -65,9 +65,6 @@ namespace Keyboard_Breaker
 
 				keys.pj1_Point = MovePoint(keys.pj1_Point, keys.pj2_Point);
 				keys.pj2_Point = MovePoint(keys.pj2_Point, keys.pj1_Point);
-				//keys.none_player; ------------> para agregar las imagenes del artista
-				//keys.player_skin;
-				//keys.player2_skin;
 			}
 		}
 

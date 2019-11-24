@@ -1,4 +1,3 @@
-#include <iostream>
 #include "gameplay.h"
 
 #include "raylib.h"
@@ -12,9 +11,25 @@ namespace Keyboard_Breaker
 	{
 		gameModes modes;
 
+		static int fontTimer = 70;
+		static int fontPlayer = 40;
+		static int fontBlock = 30;
+
+		int num;
+		float contTime;
+		bool start;
+
+		static int distancePos0 = 20;
+
+		void Timer();
+
 		void InitGameMode()
 		{
-			modes = fight;
+			modes = normal;
+
+			num = 3;
+			contTime = 3;
+			start = false;
 		}
 
 		void UpdateGameplay()
@@ -23,30 +38,68 @@ namespace Keyboard_Breaker
 			{
 			case normal:
 
-				Player::Input();
-				Keys::EarnPoint();
-				Player::DrawPoints();
-				Player::Win();
+				Timer();
+				if (start)
+				{
+					Player::Input();
+					Keys::EarnPoint();
+					Player::DrawPoints();
+					Player::Win();
+				}
 				Keys::Draw();
-
-				DrawText("v0.2", GetScreenWidth() - 40, GetScreenHeight() - 20, 20, RAYWHITE);
 
 				break;
 			case fight:
 
-				Player::Input();
-				Keys::EarnPoint();
-				Player::DrawPoints();
-				Player::Win();
+				Timer();
+				if (start)
+				{
+					Player::Input();
+					Keys::EarnPoint();
+					Player::DrawPoints();
+					Player::Win();
+				}
 				Keys::Draw();
 
-				DrawText("v0.2", GetScreenWidth() - 40, GetScreenHeight() - 20, 20, RAYWHITE);
-				
 				break;
-
+			}
+			DrawText("press ESCAPE to go to the menu", distancePos0, GetScreenHeight() - 20, 20, RAYWHITE);
 		}
 
+		//-----------------------------
+		// functions for this cpp
+		void Timer()
+		{
+			if (contTime > 0)
+				DrawText(FormatText("%i", num), static_cast<int>(GetScreenWidth() / 2 - (MeasureText(FormatText("%i", num), fontTimer) / 2)), GetScreenHeight() / 5, fontTimer, RED);
+			else if (contTime <= 0 && contTime >= -1)
+				DrawText("GO!", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("GO!", fontTimer) / 2)), GetScreenHeight() / 5, fontTimer, RED);
 
+			if (contTime < 3 && contTime > 2)
+				num = 3;
+			else if (contTime < 2 && contTime > 1)
+				num = 2;
+			else if (contTime < 1 && contTime > 0)
+				num = 1;
+
+			if (contTime < -1)
+			{
+				start = true;
+			}
+			else
+			{
+				start = false;
+				contTime -= GetFrameTime();
+
+				DrawText("Blue\nPlayer", 100, GetScreenHeight() / 3, fontPlayer, BLUE);
+				DrawText("Red\nPlayer", GetScreenWidth() - 225, GetScreenHeight() / 3, fontPlayer, RED);
+
+				if (modes == normal)
+				{
+					DrawText("Block opponent:\n Key number 1", 50, GetScreenHeight() / 3 + 150, fontBlock, BLUE);
+					DrawText("Block opponent:\n Key number 0", GetScreenWidth() - 275, GetScreenHeight() / 3 + 150, fontBlock, RED);
+				}
+			}
 		}
 	}
 }
