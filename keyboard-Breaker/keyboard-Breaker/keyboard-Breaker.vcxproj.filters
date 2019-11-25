@@ -26,6 +26,9 @@
     <ClCompile Include="..\src\game_screens\how_to_play.cpp">
       <Filter>game_screens</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\assets_code\sounds.cpp">
+      <Filter>assets-code</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="game_screens">
@@ -33,6 +36,9 @@
     </Filter>
     <Filter Include="game_objets">
       <UniqueIdentifier>{e4230696-386c-433b-9b63-d13d8ee927f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets-code">
+      <UniqueIdentifier>{dfdad869-7c4c-4138-86ea-1e3da52042ca}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +65,9 @@
     </ClInclude>
     <ClInclude Include="..\src\game_screens\how_to_play.h">
       <Filter>game_screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\assets_code\sounds.h">
+      <Filter>assets-code</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

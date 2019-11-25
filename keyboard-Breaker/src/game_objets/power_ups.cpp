@@ -2,6 +2,7 @@
 
 #include "players.h"
 #include "keys_in_screen.h"
+#include "assets_code/sounds.h"
 
 namespace Keyboard_Breaker
 {
@@ -78,6 +79,7 @@ namespace Keyboard_Breaker
 				{
 					players.pointsPj1 -= MINE_DAMEGE;
 					mine.appear = false;
+					PlaySound(Sounds::mine_press);
 				}
 				else
 				{
@@ -90,6 +92,7 @@ namespace Keyboard_Breaker
 				{
 					players.pointsPj2 -= MINE_DAMEGE;
 					mine.appear = false;
+					PlaySound(Sounds::mine_press);
 				}
 				else
 				{
@@ -118,6 +121,7 @@ namespace Keyboard_Breaker
 				{
 					players.pointsPj1++;
 					comboTime.comboCountP1++;
+					PlaySound(Sounds::key_press);
 				}
 				else
 				{
@@ -130,6 +134,7 @@ namespace Keyboard_Breaker
 				{
 					players.pointsPj2++;
 					comboTime.comboCountP2++;
+					PlaySound(Sounds::key_press);
 				}
 				else
 				{

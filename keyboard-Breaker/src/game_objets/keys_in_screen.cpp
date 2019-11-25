@@ -6,6 +6,7 @@
 #include "players.h"
 #include "game_screens/gameplay.h"
 #include "game_objets/power_ups.h"
+#include "assets_code/sounds.h"
 
 namespace Keyboard_Breaker
 {
@@ -84,6 +85,7 @@ namespace Keyboard_Breaker
 						{
 							Mines();
 							players.pointsPj1++;
+							PlaySound(Sounds::key_press);
 						}
 						players.keyPress = 0;
 						keys.pj1_Point = MovePoint(keys.pj1_Point, keys.pj2_Point);
@@ -100,6 +102,7 @@ namespace Keyboard_Breaker
 						{
 							Mines();
 							players.pointsPj2++;
+							PlaySound(Sounds::key_press);
 						}
 						players.keyPress = 0;
 						keys.pj2_Point = MovePoint(keys.pj2_Point, keys.pj1_Point);
@@ -112,12 +115,14 @@ namespace Keyboard_Breaker
 					pointsBar.rec.x += pointsBar.movement;
 					players.keyPress = 0;
 					keys.pj1_Point = MovePoint(keys.pj1_Point, keys.pj2_Point);
+					PlaySound(Sounds::key_press);
 				}
 				else if (keys.pj2_Point == players.keyPress)
 				{
 					pointsBar.rec.x -= pointsBar.movement;
 					players.keyPress = 0;
 					keys.pj2_Point = MovePoint(keys.pj2_Point, keys.pj1_Point);
+					PlaySound(Sounds::key_press);
 				}
 				break;
 			}

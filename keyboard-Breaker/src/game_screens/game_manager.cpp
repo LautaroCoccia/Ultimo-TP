@@ -9,6 +9,7 @@
 #include "game_objets/players.h"
 #include "game_objets/keys_in_screen.h"
 #include "game_objets/power_ups.h"
+#include "assets_code/sounds.h"
 
 namespace Keyboard_Breaker
 {
@@ -28,18 +29,22 @@ namespace Keyboard_Breaker
 			SetExitKey(0);
 			state = menu;
 
+			Sounds::LoadMusic();
+
 			InitializeValues();
 		}
 
-		void InitializeValues() 
+		void InitializeValues()
 		{
 			Main_Menu::InitMenu();
+
 			Gameplay::InitGameMode();
 			How_to_play::InitHowToPlay();
 			Win_Screen::InitWin();
+			
 			Player::Initialice();
 			Keys::Initialice();
-			Power_Ups::InitPowers();		
+			Power_Ups::InitPowers();
 		}
 
 		void MainGameLoop()
@@ -50,6 +55,8 @@ namespace Keyboard_Breaker
 			{
 				ClearBackground(BLACK);
 				BeginDrawing();
+
+				Sounds::UpdateGameMusic();
 
 				switch (state)
 				{
@@ -74,6 +81,9 @@ namespace Keyboard_Breaker
 
 				EndDrawing();
 			}
+
+			Sounds::UnloadMusic_Sound();
+			CloseWindow();
 		}
 	}
 }

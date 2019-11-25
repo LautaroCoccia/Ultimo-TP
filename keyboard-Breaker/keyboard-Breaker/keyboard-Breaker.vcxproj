@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\assets_code\sounds.cpp" />
     <ClCompile Include="..\src\game_objets\keys_in_screen.cpp" />
     <ClCompile Include="..\src\game_objets\players.cpp" />
     <ClCompile Include="..\src\game_objets\power_ups.cpp" />
@@ -30,6 +31,7 @@
     <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\assets_code\sounds.h" />
     <ClInclude Include="..\src\game_objets\keys_in_screen.h" />
     <ClInclude Include="..\src\game_objets\players.h" />
     <ClInclude Include="..\src\game_objets\power_ups.h" />
@@ -43,7 +45,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{5001259A-562E-42A3-851B-FC6F93C44479}</ProjectGuid>
     <RootNamespace>keyboardBreaker</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
