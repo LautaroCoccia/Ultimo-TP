@@ -29,8 +29,8 @@ namespace Keyboard_Breaker
 		extern FIGHT_BAR fightBar;
 		extern KEYS keys;
 
-		void Initialice();
-		void EarnPoint();
+		void Initialize();
+		void GetPoints();
 		void Draw();
 	}
 }

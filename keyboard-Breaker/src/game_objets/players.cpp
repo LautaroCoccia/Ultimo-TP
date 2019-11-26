@@ -15,7 +15,7 @@ namespace Keyboard_Breaker
 		const int FONT_POINT = 100;
 		const int MAX_POINTS = 30;
 
-		void Initialice()
+		void Initialize()
 		{
 			players.keyPress = 0;
 			players.pointsPj1 = 0;

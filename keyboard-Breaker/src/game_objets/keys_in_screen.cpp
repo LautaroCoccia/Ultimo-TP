@@ -24,7 +24,7 @@ namespace Keyboard_Breaker
 		int MovePoint(int move_point, int static_point);
 		void DeclarateKeys();
 
-		void Initialice()
+		void Initialize()
 		{
 			float distanceX = static_cast<float>(GetScreenWidth()) / 4;
 			float distanceX2 = static_cast<float>(GetScreenWidth()) / 3.8f;
@@ -66,7 +66,7 @@ namespace Keyboard_Breaker
 			}
 		}
 
-		void EarnPoint()
+		void GetPoints()
 		{
 			switch (modes)
 			{

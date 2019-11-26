@@ -42,8 +42,8 @@ namespace Keyboard_Breaker
 			How_to_play::InitHowToPlay();
 			Win_Screen::InitWin();
 			
-			Player::Initialice();
-			Keys::Initialice();
+			Player::Initialize();
+			Keys::Initialize();
 			Power_Ups::InitPowers();
 		}
 
