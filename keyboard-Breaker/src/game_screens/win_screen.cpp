@@ -9,6 +9,9 @@ namespace Keyboard_Breaker
 	{
 		BUTTON returnMenu;
 
+		static const int MOUSERADIUS = 0;
+		static const int SCREENDIVIDE = 5;
+
 		static int fontTittle = 60;
 		static int fontButtons = 24;
 		static float widthRec = 200;
@@ -38,7 +41,7 @@ namespace Keyboard_Breaker
 		// functions for this cpp
 		void CheckCollitionButtonsMouse()
 		{
-			if (CheckCollisionCircleRec(GetMousePosition(), 0, returnMenu.genButton))
+			if (CheckCollisionCircleRec(GetMousePosition(), MOUSERADIUS, returnMenu.genButton))
 			{
 				returnMenu.actuallColor = returnMenu.overState;
 				if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
@@ -56,11 +59,11 @@ namespace Keyboard_Breaker
 		{
 			if (Player::players.pointsPj1 >= Player::MAX_POINTS||Player::pointsBar.rec.x + Player::pointsBar.rec.width >= GetScreenWidth())
 			{
-				DrawText("PLAYER 1 WINS", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("PLAYER 1 WINS", fontTittle) / 2)), GetScreenHeight() / 5, fontTittle, BLUE);
+				DrawText("PLAYER 1 WINS", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("PLAYER 1 WINS", fontTittle) / 2)), GetScreenHeight() / SCREENDIVIDE, fontTittle, BLUE);
 			}
 			else
 			{
-				DrawText("PLAYER 2 WINS", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("PLAYER 2 WINS", fontTittle) / 2)), GetScreenHeight() / 5, fontTittle, RED);
+				DrawText("PLAYER 2 WINS", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("PLAYER 2 WINS", fontTittle) / 2)), GetScreenHeight() / SCREENDIVIDE, fontTittle, RED);
 
 			}
 		}

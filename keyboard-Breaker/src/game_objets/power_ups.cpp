@@ -189,18 +189,18 @@ namespace Keyboard_Breaker
 			{
 				if (blockKeyPj1.appear)
 				{
-					PlaySound(Sounds::block_press);
 					blockKeyPj1.activate = true;
 					blockKeyPj1.appear = false;
+					PlaySound(Sounds::block_press);
 				}
 			}
 			else if (blockKeyPj2.ascii == players.keyPress)
 			{
 				if (blockKeyPj2.appear)
 				{
-					PlaySound(Sounds::block_press);
 					blockKeyPj2.activate = true;
 					blockKeyPj2.appear = false;
+					PlaySound(Sounds::block_press);
 				}
 			}
 
