@@ -74,8 +74,7 @@ namespace Keyboard_Breaker
 				if (keys.pj1_Point == players.keyPress || blockKeyPj1.ascii == players.keyPress)
 				{
 					BlockKey();
-
-					if (!blockKeyPj2.activate)
+					if (!blockKeyPj2.activate && !(blockKeyPj1.ascii == players.keyPress))
 					{
 						ComboTime();
 						if (!comboTime.appear)
@@ -91,8 +90,7 @@ namespace Keyboard_Breaker
 				else if (keys.pj2_Point == players.keyPress || blockKeyPj2.ascii == players.keyPress)
 				{
 					BlockKey();
-
-					if (!blockKeyPj1.activate)
+					if (!blockKeyPj1.activate && !(blockKeyPj2.ascii == players.keyPress))
 					{
 						ComboTime();
 						if (!comboTime.appear)

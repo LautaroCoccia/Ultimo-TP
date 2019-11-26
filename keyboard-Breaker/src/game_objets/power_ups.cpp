@@ -19,7 +19,7 @@ namespace Keyboard_Breaker
 		const int MINE_DAMEGE = 6;
 		const int MAX_CONT_MINE = 5;
 		const int MAX_CONT_COMBOTIME = 10;
-		const int MAX_CONT_BLOCKKEY = 12;
+		const int MAX_CONT_BLOCKKEY = 8;
 		const int MAX_BLOCKPLAYER = 10;
 
 		const float HEIGHT = 40;
