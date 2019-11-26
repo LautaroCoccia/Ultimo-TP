@@ -19,7 +19,8 @@ namespace Keyboard_Breaker
 
 		const int SCREEN_BASE_WIDTH = 1200;
 		const int SCREEN_BASE_HEIGHT = 700;
-
+		
+		
 		void InitializeWindowNMainLoop();
 		void InitializeValues();
 
