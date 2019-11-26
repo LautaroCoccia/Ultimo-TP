@@ -238,7 +238,7 @@ namespace Keyboard_Breaker
 				{
 					DrawRectangleRec(keys.rec[i], BLUE);
 					DrawRectangleLinesEx(keys.rec[i], 6, GREEN);
-					//DrawRectangleRoundedLines(Rectangle rec, float roundness, int segments, int lineThick, Color color);
+					
 				}
 				else if (keys.ascii[i] == keys.pj2_Point)
 				{

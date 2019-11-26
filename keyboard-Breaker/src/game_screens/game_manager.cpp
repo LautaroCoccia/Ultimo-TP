@@ -19,7 +19,8 @@ namespace Keyboard_Breaker
 
 		const int SCREEN_BASE_WIDTH = 1200;
 		const int SCREEN_BASE_HEIGHT = 700;
-
+		
+		
 		void InitializeWindowNMainLoop();
 		void InitializeValues();
 
@@ -42,8 +43,8 @@ namespace Keyboard_Breaker
 			How_to_play::InitHowToPlay();
 			Win_Screen::InitWin();
 			
-			Player::Initialice();
-			Keys::Initialice();
+			Player::Initialize();
+			Keys::Initialize();
 			Power_Ups::InitPowers();
 		}
 

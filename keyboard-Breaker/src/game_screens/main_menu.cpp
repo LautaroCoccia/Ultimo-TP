@@ -2,6 +2,7 @@
 
 #include "gameplay.h"
 #include "game_manager.h"
+#include "assets_code/sounds.h"
 
 namespace Keyboard_Breaker
 {
@@ -10,9 +11,11 @@ namespace Keyboard_Breaker
 		BUTTON common_mode;
 		BUTTON fight_mode;
 		BUTTON how_to_play;
+		BUTTON sound;
 		BUTTON exit;
-
+		
 		bool exitGame;
+		bool soundActive = true;
 
 		static const int HALFSCREEN = 2;
 		static const int MOUSERADIUS = 0;
@@ -45,8 +48,13 @@ namespace Keyboard_Breaker
 			how_to_play.genButton.width = widthRec;
 			how_to_play.genButton.height = heightRec;
 
+			sound.genButton.x = static_cast<float>(GetScreenWidth() - widthRec) / HALFSCREEN;
+			sound.genButton.y = how_to_play.genButton.y + heightRec + distanceRec;
+			sound.genButton.width = widthRec;
+			sound.genButton.height = heightRec;
+
 			exit.genButton.x = static_cast<float>(GetScreenWidth() - widthRec) / HALFSCREEN;
-			exit.genButton.y = how_to_play.genButton.y + heightRec + distanceRec;
+			exit.genButton.y = sound.genButton.y + heightRec + distanceRec;
 			exit.genButton.width = widthRec;
 			exit.genButton.height = heightRec;
 
@@ -106,6 +114,38 @@ namespace Keyboard_Breaker
 				how_to_play.actuallColor = how_to_play.normalState;
 			}
 
+			if (CheckCollisionCircleRec(GetMousePosition(), MOUSERADIUS, sound.genButton))
+			{
+				
+				if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+				{
+					soundActive = !soundActive;
+				}
+				if (soundActive)
+				{
+					SetMusicVolume(Sounds::loopMusic, 100);
+					SetSoundVolume(Sounds::key_press, 100);
+					SetSoundVolume(Sounds::mine_press, 100);
+					SetSoundVolume(Sounds::block_press, 100);
+					SetSoundVolume(Sounds::desblock_press, 100);
+					sound.actuallColor = sound.overState;
+				}
+				else if (!soundActive)
+				{
+					SetMusicVolume(Sounds::loopMusic, 0);
+					SetSoundVolume(Sounds::key_press, 0);
+					SetSoundVolume(Sounds::mine_press, 0);
+					SetSoundVolume(Sounds::block_press, 0);
+					SetSoundVolume(Sounds::desblock_press, 0);
+					sound.actuallColor = sound.exitState;
+				}
+				
+			}
+			else
+			{
+				sound.actuallColor = sound.normalState;
+			}
+
 			if (CheckCollisionCircleRec(GetMousePosition(), MOUSERADIUS, exit.genButton))
 			{
 				exit.actuallColor = exit.exitState;
@@ -118,6 +158,8 @@ namespace Keyboard_Breaker
 			{
 				exit.actuallColor = exit.normalState;
 			}
+
+			
 
 		}
 
@@ -136,6 +178,17 @@ namespace Keyboard_Breaker
 
 			DrawRectangleRec(how_to_play.genButton, how_to_play.actuallColor);
 			DrawText("How To Play", static_cast<int>(how_to_play.genButton.x + how_to_play.genButton.width / HALFSCREEN) - (MeasureText("How To Play", 24) / 2), static_cast<int>(how_to_play.genButton.y + heightRec / 3), fontButtons, BLACK);
+
+			DrawRectangleRec(sound.genButton, sound.actuallColor);
+			if (soundActive)
+			{
+				DrawText("Sound ON", static_cast<int>(sound.genButton.x + sound.genButton.width / HALFSCREEN) - (MeasureText("Sound ON", 24) / 2), static_cast<int>(sound.genButton.y + heightRec / 3), fontButtons, BLACK);
+			}
+			else if (!soundActive)
+			{
+				DrawText("Sound OFF", static_cast<int>(sound.genButton.x + sound.genButton.width / HALFSCREEN) - (MeasureText("Sound OFF", 24) / 2), static_cast<int>(sound.genButton.y + heightRec / 3), fontButtons, BLACK);
+			}
+			
 
 			DrawRectangleRec(exit.genButton, exit.actuallColor);
 			DrawText("Exit", static_cast<int>(exit.genButton.x + exit.genButton.width / 2) - (MeasureText("Exit", 24) / 2), static_cast<int>(exit.genButton.y + heightRec / 3), fontButtons, BLACK);

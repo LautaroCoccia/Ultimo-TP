@@ -26,7 +26,7 @@ namespace Keyboard_Breaker
 		extern POINTS_BAR pointsBar; // fight mode only
 		extern const int MAX_POINTS;
 
-		void Initialice();
+		void Initialize();
 		void Win();
 		void DrawPoints();
 		void Input();

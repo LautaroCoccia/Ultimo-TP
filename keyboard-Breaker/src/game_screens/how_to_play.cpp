@@ -10,7 +10,7 @@ namespace Keyboard_Breaker
 	{
 		BUTTON how_to_play;
 
-		void CheckCollitionButtonsMouse();
+		void CheckCollisionButtonsMouse();
 		void DrawTittle();
 		void DrawInstruction();
 		void DrawButtons();
@@ -33,7 +33,7 @@ namespace Keyboard_Breaker
 
 		void UpdateHowToPlay()
 		{
-			CheckCollitionButtonsMouse();
+			CheckCollisionButtonsMouse();
 			DrawTittle();
 			DrawInstruction();
 			DrawButtons();
@@ -41,7 +41,7 @@ namespace Keyboard_Breaker
 
 		//-----------------------------
 		// functions for this cpp
-		void CheckCollitionButtonsMouse()
+		void CheckCollisionButtonsMouse()
 		{
 			if (CheckCollisionCircleRec(GetMousePosition(), 0, how_to_play.genButton))
 			{

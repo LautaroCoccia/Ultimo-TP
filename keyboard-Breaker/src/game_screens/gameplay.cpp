@@ -42,7 +42,7 @@ namespace Keyboard_Breaker
 				if (start)
 				{
 					Player::Input();
-					Keys::EarnPoint();
+					Keys::GetPoints();
 					Player::DrawPoints();
 					Player::Win();
 				}
@@ -55,7 +55,7 @@ namespace Keyboard_Breaker
 				if (start)
 				{
 					Player::Input();
-					Keys::EarnPoint();
+					Keys::GetPoints();
 					Player::DrawPoints();
 					Player::Win();
 				}
