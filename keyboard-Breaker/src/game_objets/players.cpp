@@ -3,9 +3,6 @@
 #include "game_screens/gameplay.h"
 #include "game_screens/game_manager.h"
 
-
-#include <iostream>
-using namespace std;
 namespace Keyboard_Breaker
 {
 	using namespace Gameplay;
@@ -31,7 +28,7 @@ namespace Keyboard_Breaker
 			pointsBar.rec.width = static_cast<float>(GetScreenWidth());
 			pointsBar.rec.x = static_cast<float>((GetScreenWidth()* -1) /2);
 			pointsBar.rec.y = 20;
-			pointsBar.movement = 50;
+			pointsBar.movement = 100;
 		}
 
 		void Win()

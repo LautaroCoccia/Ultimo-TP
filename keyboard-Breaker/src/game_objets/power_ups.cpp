@@ -170,6 +170,7 @@ namespace Keyboard_Breaker
 				else if (blockKeyPj2.activate)
 				{
 					blockKeyPj1.desblockPj++;
+					PlaySound(Sounds::desblock_press);
 				}
 			}
 			else if (keys.pj2_Point == players.keyPress)
@@ -180,13 +181,15 @@ namespace Keyboard_Breaker
 				}
 				else if (blockKeyPj1.activate)
 				{
-					blockKeyPj2.desblockPj++;
+					blockKeyPj2.desblockPj++; 
+					PlaySound(Sounds::desblock_press);
 				}
 			}
 			else if (blockKeyPj1.ascii == players.keyPress)
 			{
 				if (blockKeyPj1.appear)
 				{
+					PlaySound(Sounds::block_press);
 					blockKeyPj1.activate = true;
 					blockKeyPj1.appear = false;
 				}
@@ -195,6 +198,7 @@ namespace Keyboard_Breaker
 			{
 				if (blockKeyPj2.appear)
 				{
+					PlaySound(Sounds::block_press);
 					blockKeyPj2.activate = true;
 					blockKeyPj2.appear = false;
 				}

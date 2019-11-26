@@ -63,7 +63,7 @@ namespace Keyboard_Breaker
 
 				break;
 			}
-			DrawText("press ESCAPE to go to the menu", distancePos0, GetScreenHeight() - 20, 20, RAYWHITE);
+			DrawText("press ESCAPE to go to the main menu", distancePos0, GetScreenHeight() - 20, 20, RAYWHITE);
 		}
 
 		//-----------------------------

@@ -77,7 +77,7 @@ namespace Keyboard_Breaker
 					break;
 				}
 
-				DrawText("v0.2", GetScreenWidth() - 40, GetScreenHeight() - 20, 20, RAYWHITE);
+				DrawText("v0.3", GetScreenWidth() - 40, GetScreenHeight() - 20, 20, RAYWHITE);
 
 				EndDrawing();
 			}

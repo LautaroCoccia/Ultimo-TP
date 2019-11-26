@@ -7,20 +7,21 @@ namespace Keyboard_Breaker
 		Music loopMusic;
 		Sound key_press;
 		Sound mine_press;
-
-		bool muteSound;
+		Sound block_press;
+		Sound desblock_press;
 
 		void LoadMusic()
 		{
 			InitAudioDevice();
 
-			loopMusic = LoadMusicStream("loop_songs/main_song.ogg");
+			loopMusic = LoadMusicStream("assets/loop_songs/main_song.ogg");
 			PlayMusicStream(loopMusic);
 			
-			key_press = LoadSound("efects_sounds/key_press.wav");
-			mine_press = LoadSound("efects_sounds/mine_press.wav");
-
-			//muteSound = false;
+			key_press = LoadSound("assets/efects_sounds/key_press.ogg");
+			mine_press = LoadSound("assets/efects_sounds/mine_press.ogg");
+			block_press = LoadSound("assets/efects_sounds/block_press.ogg");
+			desblock_press = LoadSound("assets/efects_sounds/desblock_press.ogg");
+			SetSoundVolume(desblock_press, 0.5f);
 		}
 
 		void UpdateGameMusic()
@@ -29,24 +30,6 @@ namespace Keyboard_Breaker
 				PlayMusicStream(loopMusic);
 			else
 				UpdateMusicStream(loopMusic);
-
-			/*if (InputMuteSound())
-			{
-				muteSound = !muteSound;
-			}*/
-
-			/*if (muteSound == true)
-			{
-				PauseMusicStream(loopMusic);
-				SetSoundVolume(key_press, 0.0f);
-				SetSoundVolume(mine_press, 0.0f);
-			}
-			else
-			{
-				ResumeMusicStream(loopMusic);
-				SetSoundVolume(key_press, 1.0f);
-				SetSoundVolume(mine_press, 1.0f);
-			}*/
 		}
 
 		void UnloadMusic_Sound()
@@ -54,6 +37,8 @@ namespace Keyboard_Breaker
 			UnloadMusicStream(loopMusic);
 			UnloadSound(key_press);
 			UnloadSound(mine_press);
+			UnloadSound(block_press);
+			UnloadSound(desblock_press);
 
 			CloseAudioDevice();
 		}

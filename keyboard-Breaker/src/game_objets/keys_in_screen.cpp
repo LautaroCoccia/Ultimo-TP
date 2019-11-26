@@ -1,6 +1,3 @@
-#include <stdlib.h>
-#include <time.h>
-
 #include "keys_in_screen.h"
 
 #include "players.h"

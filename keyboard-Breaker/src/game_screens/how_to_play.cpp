@@ -3,6 +3,7 @@
 #include "raylib.h"
 
 #include "game_manager.h"
+
 namespace Keyboard_Breaker
 {
 	namespace How_to_play
@@ -70,7 +71,7 @@ namespace Keyboard_Breaker
 
 			DrawText("KEYBOARD BREAKER: press your last key quickly to earn more points", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("KEYBOARD BREAKER: press your last key quickly to earn more points", fontText) / 2)), GetScreenHeight() / 2 + fontText * 5, fontText, GRAY);
 
-			DrawText("BLOCK KEY: press the 1 or 0 key to lock the key to your opponent", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("BLOCK KEY: press the 1 or 0 key to lock the key to your opponent", fontText) / 2)), GetScreenHeight() / 2 + fontText * 6, fontText, SKYBLUE);
+			DrawText("BLOCK KEY: press the 1 or 0 key to lock the key to your opponent for 10 touches. Wait for it to appear!", static_cast<int>(GetScreenWidth() / 2 - (MeasureText("BLOCK KEY: press the 1 or 0 key to lock the key to your opponent for 10 touches. Wait for it to appear!", fontText) / 2)), GetScreenHeight() / 2 + fontText * 6, fontText, SKYBLUE);
 		}
 
 		void DrawButtons()

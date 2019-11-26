@@ -45,7 +45,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{5001259A-562E-42A3-851B-FC6F93C44479}</ProjectGuid>
     <RootNamespace>keyboardBreaker</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

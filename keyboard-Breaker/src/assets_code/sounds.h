@@ -10,8 +10,8 @@ namespace Keyboard_Breaker
 		extern Music loopMusic;
 		extern Sound key_press;
 		extern Sound mine_press;
-
-		extern bool muteSound;
+		extern Sound block_press;
+		extern Sound desblock_press;
 
 		void LoadMusic();
 		void UpdateGameMusic();
