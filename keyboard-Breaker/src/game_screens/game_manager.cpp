@@ -7,7 +7,7 @@
 #include "win_screen.h"
 #include "how_to_play.h"
 #include "game_objets/players.h"
-#include "game_objets/keys_in_screen.h"
+#include "game_objets/keys_on_screen.h"
 #include "game_objets/power_ups.h"
 #include "assets_code/sounds.h"
 

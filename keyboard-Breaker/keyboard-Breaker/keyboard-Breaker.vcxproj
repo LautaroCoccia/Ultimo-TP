@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\assets_code\sounds.cpp" />
-    <ClCompile Include="..\src\game_objets\keys_in_screen.cpp" />
+    <ClCompile Include="..\src\game_objets\keys_on_screen.cpp" />
     <ClCompile Include="..\src\game_objets\players.cpp" />
     <ClCompile Include="..\src\game_objets\power_ups.cpp" />
     <ClCompile Include="..\src\game_screens\gameplay.cpp" />
@@ -32,7 +32,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\assets_code\sounds.h" />
-    <ClInclude Include="..\src\game_objets\keys_in_screen.h" />
+    <ClInclude Include="..\src\game_objets\keys_on_screen.h" />
     <ClInclude Include="..\src\game_objets\players.h" />
     <ClInclude Include="..\src\game_objets\power_ups.h" />
     <ClInclude Include="..\src\game_screens\gameplay.h" />

@@ -11,9 +11,6 @@
     <ClCompile Include="..\src\game_screens\main_menu.cpp">
       <Filter>game_screens</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\game_objets\keys_in_screen.cpp">
-      <Filter>game_objets</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\game_objets\players.cpp">
       <Filter>game_objets</Filter>
     </ClCompile>
@@ -28,6 +25,9 @@
     </ClCompile>
     <ClCompile Include="..\src\assets_code\sounds.cpp">
       <Filter>assets-code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game_objets\keys_on_screen.cpp">
+      <Filter>game_objets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -51,9 +51,6 @@
     <ClInclude Include="..\src\game_screens\main_menu.h">
       <Filter>game_screens</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\game_objets\keys_in_screen.h">
-      <Filter>game_objets</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\game_objets\players.h">
       <Filter>game_objets</Filter>
     </ClInclude>
@@ -68,6 +65,9 @@
     </ClInclude>
     <ClInclude Include="..\src\assets_code\sounds.h">
       <Filter>assets-code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game_objets\keys_on_screen.h">
+      <Filter>game_objets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

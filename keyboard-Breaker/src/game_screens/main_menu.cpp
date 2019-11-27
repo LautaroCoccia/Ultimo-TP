@@ -171,7 +171,7 @@ namespace Keyboard_Breaker
 		void DrawButtons()
 		{
 			DrawRectangleRec(common_mode.genButton, common_mode.actuallColor);
-			DrawText("Common Mode", static_cast<int>(common_mode.genButton.x + common_mode.genButton.width / HALFSCREEN) - (MeasureText("Common Mode", 24) / 2), static_cast<int>(common_mode.genButton.y + heightRec / 3), fontButtons, BLACK);
+			DrawText("Normal Mode", static_cast<int>(common_mode.genButton.x + common_mode.genButton.width / HALFSCREEN) - (MeasureText("Normal Mode", 24) / 2), static_cast<int>(common_mode.genButton.y + heightRec / 3), fontButtons, BLACK);
 
 			DrawRectangleRec(fight_mode.genButton, fight_mode.actuallColor);
 			DrawText("Fight Mode", static_cast<int>(fight_mode.genButton.x + fight_mode.genButton.width / HALFSCREEN) - (MeasureText("Fight Mode", 24) / 2), static_cast<int>(fight_mode.genButton.y + heightRec / 3), fontButtons, BLACK);
@@ -202,7 +202,7 @@ namespace Keyboard_Breaker
 			int distanceY1 = 10;
 			int distanceY2 = 45;
 
-			DrawText("Made whit RAYLIB", distanceX, distanceY1, font, WHITE);
+			DrawText("Made with RAYLIB", distanceX, distanceY1, font, WHITE);
 
 			DrawText("Lautaro Coccia\nTomas Aquistapace", distanceX, GetScreenHeight() - distanceY2, font, WHITE);
 		}
